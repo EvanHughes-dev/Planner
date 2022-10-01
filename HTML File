@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="C:\Users\jchin\Desktop\HTML\StyleSheet.css">
+
+    <script>
+
+   var DatesForCalender =  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+var AllMonths = ["January", "Febuary", "March", "April", "May", "June", "July", "Agust", "September", "October", "November", "December"];
+   function ReturnDays(){
+
+
+     var date = new Date();
+                var month = date.getMonth() + 1;
+                var year = date.getFullYear();
+     Day(date, month, year);
+               document.getElementById('Day1').innerHTML = DatesForCalender[0] ;
+               document.getElementById('Day2').innerHTML = DatesForCalender[1] ;
+               document.getElementById('Day3').innerHTML = DatesForCalender[2] ;
+               document.getElementById('Day4').innerHTML = DatesForCalender[3] ;
+               document.getElementById('Day5').innerHTML = DatesForCalender[4] ;
+               document.getElementById('Day6').innerHTML = DatesForCalender[5] ;
+               document.getElementById('Day7').innerHTML = DatesForCalender[6] ;
+               document.getElementById('Day8').innerHTML = DatesForCalender[7] ;
+               document.getElementById('Day9').innerHTML = DatesForCalender[8] ;
+               document.getElementById('Day10').innerHTML = DatesForCalender[9] ;
+               document.getElementById('Day11').innerHTML = DatesForCalender[10] ;
+               document.getElementById('Day12').innerHTML = DatesForCalender[11];
+               document.getElementById('Day13').innerHTML = DatesForCalender[12] ;
+               document.getElementById('Day14').innerHTML = DatesForCalender[13] ;
+               document.getElementById('Day15').innerHTML = DatesForCalender[14] ;
+               document.getElementById('Day16').innerHTML = DatesForCalender[15] ;
+               document.getElementById('Day17').innerHTML = DatesForCalender[16] ;
+               document.getElementById('Day18').innerHTML = DatesForCalender[17] ;
+               document.getElementById('Day19').innerHTML = DatesForCalender[18] ;
+               document.getElementById('Day20').innerHTML = DatesForCalender[19] ;
+               document.getElementById('Day21').innerHTML = DatesForCalender[20] ;
+               document.getElementById('Day22').innerHTML = DatesForCalender[21] ;
+               document.getElementById('Day23').innerHTML = DatesForCalender[22] ;
+               document.getElementById('Day24').innerHTML = DatesForCalender[23] ;
+               document.getElementById('Day25').innerHTML = DatesForCalender[24] ;
+               document.getElementById('Day26').innerHTML = DatesForCalender[25] ;
+               document.getElementById('Day27').innerHTML = DatesForCalender[26] ;
+               document.getElementById('Day28').innerHTML = DatesForCalender[27];
+               document.getElementById('Day29').innerHTML = DatesForCalender[28] ;
+               document.getElementById('Day30').innerHTML = DatesForCalender[29] ;
+               document.getElementById('Day31').innerHTML = DatesForCalender[30] ;
+               document.getElementById('Day32').innerHTML = DatesForCalender[31] ;
+                document.getElementById('Day33').innerHTML = DatesForCalender[32] ;
+               document.getElementById('Day34').innerHTML = DatesForCalender[33] ;
+               document.getElementById('Day35').innerHTML = DatesForCalender[34] ;
+               document.getElementById('Day36').innerHTML = DatesForCalender[35] ;
+               document.getElementById('Day37').innerHTML = DatesForCalender[36] ;
+               document.getElementById('Day38').innerHTML = DatesForCalender[37] ;
+               document.getElementById('Day39').innerHTML = DatesForCalender[38];
+               document.getElementById('Day40').innerHTML = DatesForCalender[39] ;
+               document.getElementById('Day41').innerHTML = DatesForCalender[40] ;
+               document.getElementById('Day42').innerHTML = DatesForCalender[41] ;
+
+               				document.getElementById('Month').innerHTML = AllMonths[month-1] ;
+
+}
+
+   function daysInMonth (month, year) {
+                return new Date(year, month, 0).getDate();
+
+
+                     }
+   function Day(date, month, year){
+
+DayOfWeek = new Date(year, month, 0).getDay();
+    var DayTemp = 1;
+
+
+
+MonthBefore = new Date(year, month - 1, 0);
+MonthAfter = new Date(year, month + 1, 0);
+     for (i = 0; i< DatesForCalender.length; ){
+        if (i + 1 < DayOfWeek ){
+          DatesForCalender[i] = MonthBefore.getDate()-DayOfWeek+i+2;
+
+        } else if (i + 1 >= DayOfWeek && i+1< DayOfWeek + daysInMonth(year, month) ){
+
+          DatesForCalender[i] = DayTemp;
+          DayTemp++;
+        }else if (i <= 41 && i+1 >= DayOfWeek + daysInMonth(year, month) ){
+         DatesForCalender[i] = 2 + (42-DayOfWeek-daysInMonth(year, month))-(42-i);
+        }
+
+       i++;
+     }
+
+   }
+    </script>
+
+    <script>
+function openNav() {
+  document.getElementById("mySidebar").style.width = "250px";
+  document.getElementById("main").style.marginRight = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+}
+    </script>
+</head>
+
+
+<body onload="ReturnDays()">
+
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="CheckBoxStyle"><input type="checkbox" id="_box1"><label for="_box1"> Test </label></div>
+
+    </div>
+
+    <div id="main">
+        <button class="openbtn" onclick="openNav()">&#9776; </button>
+
+    </div>
+
+
+
+    <div class="body-text">
+        <center>
+
+
+            <table>
+                <caption>
+                    <center>
+                        <div class="table-header"> <h id="Month"></h></div>
+                    </center>
+                </caption>
+                <tr>
+                    <th> Sunday </th>
+                    <th> Monday </th>
+                    <th> Tuesday </th>
+                    <th> Wednesday </th>
+                    <th> Thursday </th>
+                    <th> Friday </th>
+                    <th> Saturday </th>
+
+
+                </tr>
+                <tr>
+                    <td id="Day1">  </td>
+                    <td id="Day2">  </td>
+                    <td id="Day3">  </td>
+                    <td id="Day4">  </td>
+                    <td id="Day5">  </td>
+                    <td id="Day6">  </td>
+                    <td id="Day7">  </td>
+                </tr>
+                <tr>
+                    <td id="Day8">  </td>
+                    <td id="Day9">  </td>
+                    <td id="Day10">  </td>
+                    <td id="Day11">  </td>
+                    <td id="Day12">  </td>
+                    <td id="Day13">  </td>
+                    <td id="Day14">  </td>
+                </tr>
+                <tr>
+                    <td id="Day15">  </td>
+                    <td id="Day16">  </td>
+                    <td id="Day17">  </td>
+                    <td id="Day18">  </td>
+                    <td id="Day19">  </td>
+                    <td id="Day20">  </td>
+                    <td id="Day21">  </td>
+                </tr>
+                <tr>
+                    <td id="Day22">  </td>
+                    <td id="Day23">  </td>
+                    <td id="Day24">  </td>
+                    <td id="Day25">  </td>
+                    <td id="Day26">  </td>
+                    <td id="Day27">  </td>
+                    <td id="Day28">  </td>
+                </tr>
+                <tr>
+                    <td id="Day29">  </td>
+                    <td id="Day30">  </td>
+                    <td id="Day31">  </td>
+                    <td id="Day32">  </td>
+                    <td id="Day33">  </td>
+                    <td id="Day34">  </td>
+                    <td id="Day35">  </td>
+                </tr>
+                <tr>
+                    <td id="Day36">  </td>
+                    <td id="Day37">  </td>
+                    <td id="Day38">  </td>
+                    <td id="Day39">  </td>
+                    <td id="Day40">  </td>
+                    <td id="Day41">  </td>
+                    <td id="Day42">  </td>
+                </tr>
+
+            </table>
+        </center>
+    </div>
+
+
+
+</body>
+
+
+</html>
