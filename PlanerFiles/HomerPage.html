@@ -15,11 +15,12 @@
 </head>
 
 
-<body onload="ReturnDays()">
-
+<body onload="Begin()">
+  
     <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&#10097;</a>
-        <div class="CheckBoxStyle"><input type="checkbox" id="_box1"><label for="_box1"> Test </label></div>
+        <ul class="CheckBoxStyle" id="MyList">
+        </ul>
 
     </div>
 
@@ -30,16 +31,19 @@
 
 
 
-    <div class="body-text">
+    <div class="Box"><div class="Left"><input type="button" id="GoLeft"></div><div class="Right"><input type="button" id="GoRight" onclick="GoRight()"></div></div>
         <center>
-
+           
 
             <table>
+
                 <caption>
                     <center>
+
                         <div class="table-header"> <h id="Month"></h></div>
                     </center>
                 </caption>
+
                 <tr>
                     <th> Sunday </th>
                     <th> Monday </th>
@@ -108,33 +112,58 @@
 
             </table>
         </center>
-    </div>
-
    
+
+
     <input type="button" onclick="window.Test2.showModal()">
 
 
     <dialog id="Test2" style="width:50%;height: 45%;background-color:#F4FFEF;border:1px dotted black;">
-        <form onsubmit=GetDataInput()>
-          <div class="labelForForm">
-                <label >
+        <form id="_SubmitForm">
+            <div class="labelForForm">
+                <label>
                     Date:
-                    <input type="date" id="Date" placeholder="" />
+                    <input type="date" id="Date" placeholder="" required />
                 </label>
-           </div>
-            <div class="labelForForm"><label >
-    Title
-    <input type="text" id="Title" placeholder="Math homewor..." />
+            </div>
+            <div class="labelForForm">
+                <label>
 
-</label></div>
-            
+                    <input type="text" id="Title" placeholder="Math homework..." />
+
+                </label>
+            </div>
+
             <button type="reset">Reset</button>
-            <button type="submit">Submit</button>
+            <button type="button"></button>
+            <button type="submit" id="SubmitButton">Submit</button>
 
 
         </form>
     </dialog>
-   <p id="test"></p>
+    <p id="test">hello</p>
+    <button type="button" id="ResetSaved">Clear Local</button>
+
+    <script>
+        document.getElementById('SubmitButton').addEventListener("click", () => {
+            GetDataInput();
+            event.preventDefault();
+
+            window.Test2.close();
+
+        });
+
+        document.getElementById("ResetSaved").addEventListener("click", () => {
+
+            localStorage.clear();
+
+        });
+
+
+
+    </script>
+
+    <div style="visibility: hidden" id="hidden">The</div>
 
 </body>
 
