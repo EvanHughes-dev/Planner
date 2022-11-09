@@ -20,6 +20,7 @@
     <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&#10097;</a>
         <ul class="CheckBoxStyle" id="MyList">
+
         </ul>
 
     </div>
@@ -31,17 +32,23 @@
 
 
 
-    <div class="Box"><div class="Left"><input type="button" id="GoLeft"></div><div class="Right"><input type="button" id="GoRight" onclick="GoRight()"></div></div>
+   
         <center>
            
 
             <table>
 
                 <caption>
-                    <center>
+                    
 
-                        <div class="table-header"> <h id="Month"></h></div>
-                    </center>
+                        <div class="table-header">
+
+                            <h class = "headerText"id="Month"></h>
+                            <button class="Left" id="GoLeft" onclick="GoLeft()">&#8592</button>
+                            <button class="Right" id="GoRight" onclick="GoRight()">&#8594</button>
+                        </div>
+                        
+                   
                 </caption>
 
                 <tr>
@@ -56,58 +63,216 @@
 
                 </tr>
                 <tr>
-                    <td id="Day1">  </td>
-                    <td id="Day2">  </td>
-                    <td id="Day3">  </td>
-                    <td id="Day4">  </td>
-                    <td id="Day5">  </td>
-                    <td id="Day6">  </td>
-                    <td id="Day7">  </td>
+                    <td id="Day1Back">
+                        <p class="textArea" id="Day1"> </p>
+                        <div class="DueBox" id="Due1"> </div>
+                    </td>
+                    <td id="Day2Back">
+                        <p class="textArea" id="Day2"> </p>
+                        <div class="DueBox" id="Due2"> </div>
+                    </td>
+                    <td id="Day3Back">
+                        <p class="textArea" id="Day3"> </p>
+                        <div class="DueBox" id="Due3"> </div>
+                    </td>
+                    <td id="Day4Back">
+                        <p class="textArea" id="Day4"> </p>
+                        <div class="DueBox" id="Due4"> </div>
+                    </td>
+                    <td id="Day5Back">
+                        <p class="textArea" id="Day5"> </p>
+                        <div class="DueBox" id="Due5"> </div>
+                    </td>
+                    <td id="Day6Back">
+                        <p class="textArea" id="Day6"> </p>
+                        <div class="DueBox" id="Due6"> </div>
+                    </td>
+                    <td id="Day7Back">
+                        <p class="textArea" id="Day7"> </p>
+                        <div class="DueBox" id="Due7"> </div>
+                    </td>
                 </tr>
                 <tr>
-                    <td id="Day8">  </td>
-                    <td id="Day9">  </td>
-                    <td id="Day10">  </td>
-                    <td id="Day11">  </td>
-                    <td id="Day12">  </td>
-                    <td id="Day13">  </td>
-                    <td id="Day14">  </td>
+                    <td id="Day8Back">
+                        <p class="textArea" id="Day8"> </p>
+                        <div class="DueBox" id="Due8"> </div>
+                    </td>
+                    <td id="Day9Back">
+                        <p class="textArea" id="Day9"> </p>
+                        <div class="DueBox" id="Due9"> </div>
+                    </td>
+                    <td id="Day10Back">
+                        <p class="textArea" id="Day10"> </p>
+                        <div class="DueBox" id="Due10"> </div>
+                    </td>
+                    <td id="Day11Back">
+                        <p class="textArea" id="Day11"> </p>
+                        <div class="DueBox" id="Due11"> </div>
+
+                    </td>
+                    <td id="Day12Back">
+                        <p class="textArea" id="Day12"> </p>
+                        <div class="DueBox" id="Due12"> </div>
+
+                    </td>
+                    <td id="Day13Back">
+                        <p class="textArea" id="Day13"> </p>
+                        <div class="DueBox" id="Due13"> </div>
+
+                    </td>
+                    <td id="Day14Back">
+                        <p class="textArea" id="Day14"> </p>
+                        <div class="DueBox" id="Due14"> </div>
+
+                    </td>
                 </tr>
                 <tr>
-                    <td id="Day15">  </td>
-                    <td id="Day16">  </td>
-                    <td id="Day17">  </td>
-                    <td id="Day18">  </td>
-                    <td id="Day19">  </td>
-                    <td id="Day20">  </td>
-                    <td id="Day21">  </td>
+                    <td id="Day15Back">
+                        <p class="textArea" id="Day15"></p>
+                        <div class="DueBox" id="Due15"> </div>
+
+                    </td>
+                    <td id="Day16Back">
+                        <p class="textArea" id="Day16"></p>
+                        <div class="DueBox" id="Due16"> </div>
+
+                    </td>
+                    <td id="Day17Back">
+                        <p class="textArea" id="Day17"></p>
+                        <div class="DueBox" id="Due17"> </div>
+
+                    </td>
+                    <td id="Day18Back">
+                        <p class="textArea" id="Day18"></p>
+                        <div class="DueBox" id="Due18"> </div>
+
+                    </td>
+                    <td id="Day19Back">
+                        <p class="textArea" id="Day19"> </p>
+                        <div class="DueBox" id="Due19"> </div>
+
+                    </td>
+                    <td id="Day20Back">
+                        <p class="textArea" id="Day20"> </p>
+                        <div class="DueBox" id="Due20"> </div>
+
+                    </td>
+                    <td id="Day21Back">
+                        <p class="textArea" id="Day21"> </p>
+                        <div class="DueBox" id="Due21"> </div>
+
+                    </td>
                 </tr>
                 <tr>
-                    <td id="Day22">  </td>
-                    <td id="Day23">  </td>
-                    <td id="Day24">  </td>
-                    <td id="Day25">  </td>
-                    <td id="Day26">  </td>
-                    <td id="Day27">  </td>
-                    <td id="Day28">  </td>
+                    <td id="Day22Back">
+                        <p class="textArea" id="Day22"></p>
+                        <div class="DueBox" id="Due22"> </div>
+
+                    </td>
+                    <td id="Day23Back">
+                        <p class="textArea" id="Day23"></p>
+                        <div class="DueBox" id="Due23"> </div>
+
+                    </td>
+                    <td id="Day24Back">
+                        <p class="textArea" id="Day24"></p>
+                        <div class="DueBox" id="Due24"> </div>
+
+                    </td>
+                    <td id="Day25Back">
+                        <p class="textArea" id="Day25"></p>
+                        <div class="DueBox" id="Due25"> </div>
+
+                    </td>
+                    <td id="Day26Back">
+                        <p class="textArea" id="Day26"> </p>
+                        <div class="DueBox" id="Due26"> </div>
+
+                    </td>
+                    <td id="Day27Back">
+                        <p class="textArea" id="Day27"> </p>
+                        <div class="DueBox" id="Due27"> </div>
+
+                    </td>
+                    <td id="Day28Back">
+                        <p class="textArea" id="Day28"> </p>
+                        <div class="DueBox" id="Due28"> </div>
+
+                    </td>
                 </tr>
                 <tr>
-                    <td id="Day29">  </td>
-                    <td id="Day30">  </td>
-                    <td id="Day31">  </td>
-                    <td id="Day32">  </td>
-                    <td id="Day33">  </td>
-                    <td id="Day34">  </td>
-                    <td id="Day35">  </td>
+                    <td id="Day29Back">
+                        <p class="textArea" id="Day29"></p>
+                        <div class="DueBox" id="Due29"> </div>
+
+                    </td>
+                    <td id="Day30Back">
+                        <p class="textArea" id="Day30"></p>
+                        <div class="DueBox" id="Due30"> </div>
+
+                    </td>
+                    <td id="Day31Back">
+                        <p class="textArea" id="Day31"></p>
+                        <div class="DueBox" id="Due31"> </div>
+
+                    </td>
+                    <td id="Day32Back">
+                        <p class="textArea" id="Day32"></p>
+                        <div class="DueBox" id="Due32"> </div>
+
+                    </td>
+                    <td id="Day33Back">
+                        <p class="textArea" id="Day33"> </p>
+                        <div class="DueBox" id="Due33"> </div>
+
+                    </td>
+                    <td id="Day34Back">
+                        <p class="textArea" id="Day34"> </p>
+                        <div class="DueBox" id="Due34"> </div>
+
+                    </td>
+                    <td id="Day35Back">
+                        <p class="textArea" id="Day35"> </p>
+                        <div class="DueBox" id="Due35"> </div>
+
+                    </td>
                 </tr>
                 <tr>
-                    <td id="Day36">  </td>
-                    <td id="Day37">  </td>
-                    <td id="Day38">  </td>
-                    <td id="Day39">  </td>
-                    <td id="Day40">  </td>
-                    <td id="Day41">  </td>
-                    <td id="Day42">  </td>
+                    <td id="Day36Back">
+                        <p class="textArea" id="Day36"></p>
+                        <div class="DueBox" id="Due36"> </div>
+
+                    </td>
+                    <td id="Day37Back">
+                        <p class="textArea" id="Day37"></p>
+                        <div class="DueBox" id="Due37"> </div>
+
+                    </td>
+                    <td id="Day38Back">
+                        <p class="textArea" id="Day38"></p>
+                        <div class="DueBox" id="Due38"> </div>
+
+                    </td>
+                    <td id="Day39Back">
+                        <p class="textArea" id="Day39"></p>
+                        <div class="DueBox" id="Due39"> </div>
+
+                    </td>
+                    <td id="Day40Back">
+                        <p class="textArea" id="Day40"> </p>
+                        <div class="DueBox" id="Due40"> </div>
+
+                    </td>
+                    <td id="Day41Back">
+                        <p class="textArea" id="Day41"> </p>
+                        <div class="DueBox" id="Due41"> </div>
+
+                    </td>
+                    <td id="Day42Back">
+                        <p class="textArea" id="Day42"> </p>
+                        <div class="DueBox" id="Due42"> </div>
+
+                    </td>
                 </tr>
 
             </table>
