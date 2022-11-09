@@ -16,27 +16,31 @@ button {
 .table-header {
     width: 900px;
     height: 100px;
-    display: flex;
+    
+   position:relative;
+    border: 1px solid black;
+   margin-bottom:0px;
+    background : #8DBCBB;
+    color: white;
+    z-index: 1;
+}
+
+.headerText {
     /*this centers the text horizontally*/
     justify-content: center;
     /*this centers the text vertically*/
     align-items: center;
-    border: 1px solid black;
     font-family: sans-serif;
     font-size: 70px;
-    background: #b20a0a;
-    z-index: 1;
 }
-
-
 
 table {
     margin-top: 0px;
     margin-left: 50px;
     width: 900px;
     height: 500px;
+    border: none;
     background: #000;
-   
 }
 
    
@@ -44,7 +48,7 @@ table, th, td {
 }
 
 th {
-    background-color: #04AA6D;
+    background-color: #005B9A;
     color: white;
     width: 14.28571428571429%;
     height: 15%;
@@ -53,8 +57,8 @@ th {
 td {
     text-align: right;
     vertical-align: top;
-    background-color: white;
-    color: #2d477b;
+    color: papayawhip;
+    background-color: #74C2E1;
     height: 13.33333333333333%;
 }
 
@@ -136,39 +140,9 @@ td {
             font-size: 18px;
         }
 }
-/* creates the dropdown option */
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #F1B24A;
-    min-width: 160px;
-    z-index: 70;
-}
-    /* cretaes what it looks like for dropdown */
 
-    .dropdown-content a {
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-        z-index: 71;
-    }
-        /* creates the text will look like */
 
-        .dropdown-content a:hover {
-            background-color: #ADD89D
-        }
-/* creates the hover color  */
-
-.dropdown:hover .dropdown-content {
-    display: dropdown-content;
-}
-/* combinds the two */
-
-.btn:hover, .dropdown:hover .btn {
-    background-color: #ADD89D;
-}
 /* combinds them again  */
 .closebtn:hover {
     font-size: 30px;
@@ -202,25 +176,52 @@ li:hover {
 }
 
 .Left {
-    left: -20px;
-    top: 180px;
-    position: absolute
-}
-.Right {
+    left: -5px;
+    bottom: 0px;
+    width: 40px;
+    height: 70px;
+    border: none;
+    align-content: center;
+    font-size: 50px;
+    position: absolute;
+    background: none;
     
-    right: -20px;
-    top: 180px;
-    position:absolute
 }
 
-.Box {
- 
-    margin-top: 100px;
-    margin-left:525px;
-    width: 900px;
-    height: 500px;
-    border:double;
- 
-;    position:absolute
-      
+.Right {
+    right: 20px;
+    bottom: 0px;
+    
+    align-content: center;
+    text-align:center;
+    position: absolute;
+    width: 40px;
+    height: 70px;
+    border: none;
+    font-size: 50px;
+    background: none;
+  
+}
+
+
+
+
+.textArea {
+    color: papayawhip;
+    margin-top:0px;
+    text-align: right;
+    vertical-align: top;
+   
+    margin-bottom:0px;
+}
+
+.DueBox {
+    display: block;
+    height: 60%;
+    width: 100%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: left;
 }
