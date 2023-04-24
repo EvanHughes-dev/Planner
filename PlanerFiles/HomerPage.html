@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="CSS-Planer-Main.css">
+    <script src="MyPlannerScripts.js"></script>
+
+    <script src="API\chosen-1.8.7\jquery-ui-1.13.2.custom\external\jquery\jquery.js"></script>
+    <script src="API\chosen-1.8.7\jquery-ui-1.13.2.custom\jquery-ui.js"></script>
+    <link rel="stylesheet" href="API\chosen-1.8.7\jquery-ui-1.13.2.custom\jquery-ui.min.css">
+
+
+</head>
+
+
+<body onload="Begin()">
+
+    <div id="mySidebar" class="sidebar">
+        <select id="DropDownChange" style="background:aqua; accent-color:green;">
+            <option>All</option>
+            <option>Math</option>
+            <option>English</option>
+            <option>Biology</option>
+            <option>Chemistry</option>
+            <option>Physics</option>
+            <option>Global Polotics</option>
+            <option>German</option>
+            <option>French</option>
+            <option>Spanish</option>
+            <option>Economics</option>
+            <option>Enviromental</option>
+            <option>Psychology</option>
+            <option>Theory of Knowledge</option>
+            <option>Design Tech</option>
+            <option>Engineering</option>
+            <option>Forensics</option>
+            <option>Health & Med</option>
+            <option>Sports Science</option>
+            <option>Programming</option>
+            <option>History</option>
+
+        </select>
+
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&#10097;</a>
+        <ul class="CheckBoxStyle" id="MyList">
+        </ul>
+        <button type="button" id="ResetSaved" class="DeletAllButton">Delet All</button>
+    </div>
+
+    <div id="main">
+        <button class="openbtn" onclick="openNav()">&#10096; </button>
+
+    </div>
+
+
+
+    <div class="BigBox" id="Block">
+        <div class="BigCell" id="BigCell">
+            <button class="BigBoxX" onclick="ZoomOut()"> &#9958; </button>
+            <p class="textArea2" id="BigDateBox"></p>
+            <p class="DueBox2" id="BigDueBox"></p>
+
+        </div>
+    </div>
+
+    <!--#region Calender-->
+
+    <center>
+
+
+        <table width="900">
+
+            <caption>
+
+
+                <div class="table-header" id="header">
+
+                    <h class="headerText" id="Month"></h>
+                    <button class="Left" id="GoLeft" onclick="GoLeft()">&#8592</button>
+                    <button class="Right" id="GoRight" onclick="GoRight()">&#8594</button>
+                </div>
+
+
+            </caption>
+
+            <tr>
+                <th width="122"> Sunday </th>
+                <th width="122"> Monday </th>
+                <th width="122"> Tuesday </th>
+                <th width="122"> Wednesday </th>
+                <th width="122"> Thursday </th>
+                <th width="122"> Friday </th>
+                <th width="122"> Saturday </th>
+
+
+            </tr>
+            <tr>
+
+
+                <td id="Day1Back">
+
+
+                    <p class="textArea" id="Day1"> </p>
+                    <p class="DueBox" id="Due1"></p>
+
+
+                </td>
+                <td id="Day2Back">
+                    <p class="textArea" id="Day2"> </p>
+                    <div class="DueBox" id="Due2"> </div>
+                </td>
+                <td id="Day3Back">
+                    <p class="textArea" id="Day3"> </p>
+                    <div class="DueBox" id="Due3"> </div>
+                </td>
+                <td id="Day4Back">
+                    <p class="textArea" id="Day4"> </p>
+                    <div class="DueBox" id="Due4"> </div>
+                </td>
+                <td id="Day5Back">
+                    <p class="textArea" id="Day5"> </p>
+                    <div class="DueBox" id="Due5"> </div>
+                </td>
+                <td id="Day6Back">
+                    <p class="textArea" id="Day6"> </p>
+                    <div class="DueBox" id="Due6"> </div>
+                </td>
+                <td id="Day7Back">
+                    <p class="textArea" id="Day7"> </p>
+                    <div class="DueBox" id="Due7"> </div>
+                </td>
+            </tr>
+            <tr>
+                <td id="Day8Back">
+                    <p class="textArea" id="Day8"> </p>
+                    <div class="DueBox" id="Due8"> </div>
+                </td>
+                <td id="Day9Back">
+                    <p class="textArea" id="Day9"> </p>
+                    <div class="DueBox" id="Due9"> </div>
+                </td>
+                <td id="Day10Back">
+                    <p class="textArea" id="Day10"> </p>
+                    <div class="DueBox" id="Due10"> </div>
+                </td>
+                <td id="Day11Back">
+                    <p class="textArea" id="Day11"> </p>
+                    <div class="DueBox" id="Due11"> </div>
+
+                </td>
+                <td id="Day12Back">
+                    <p class="textArea" id="Day12"> </p>
+                    <div class="DueBox" id="Due12"> </div>
+
+                </td>
+                <td id="Day13Back">
+                    <p class="textArea" id="Day13"> </p>
+                    <div class="DueBox" id="Due13"> </div>
+
+                </td>
+                <td id="Day14Back">
+                    <p class="textArea" id="Day14"> </p>
+                    <div class="DueBox" id="Due14"> </div>
+
+                </td>
+            </tr>
+            <tr>
+                <td id="Day15Back">
+                    <p class="textArea" id="Day15"></p>
+                    <div class="DueBox" id="Due15"> </div>
+
+                </td>
+                <td id="Day16Back">
+                    <p class="textArea" id="Day16"></p>
+                    <div class="DueBox" id="Due16"> </div>
+
+                </td>
+                <td id="Day17Back">
+                    <p class="textArea" id="Day17"></p>
+                    <div class="DueBox" id="Due17"> </div>
+
+                </td>
+                <td id="Day18Back">
+                    <p class="textArea" id="Day18"></p>
+                    <div class="DueBox" id="Due18"> </div>
+
+                </td>
+                <td id="Day19Back">
+                    <p class="textArea" id="Day19"> </p>
+                    <div class="DueBox" id="Due19"> </div>
+
+                </td>
+                <td id="Day20Back">
+                    <p class="textArea" id="Day20"> </p>
+                    <div class="DueBox" id="Due20"> </div>
+
+                </td>
+                <td id="Day21Back">
+                    <p class="textArea" id="Day21"> </p>
+                    <div class="DueBox" id="Due21"> </div>
+
+                </td>
+            </tr>
+            <tr>
+                <td id="Day22Back">
+                    <p class="textArea" id="Day22"></p>
+                    <div class="DueBox" id="Due22"> </div>
+
+                </td>
+                <td id="Day23Back">
+                    <p class="textArea" id="Day23"></p>
+                    <div class="DueBox" id="Due23"> </div>
+
+                </td>
+                <td id="Day24Back">
+                    <p class="textArea" id="Day24"></p>
+                    <div class="DueBox" id="Due24"> </div>
+
+                </td>
+                <td id="Day25Back">
+                    <p class="textArea" id="Day25"></p>
+                    <div class="DueBox" id="Due25"> </div>
+
+                </td>
+                <td id="Day26Back">
+                    <p class="textArea" id="Day26"> </p>
+                    <div class="DueBox" id="Due26"> </div>
+
+                </td>
+                <td id="Day27Back">
+                    <p class="textArea" id="Day27"> </p>
+                    <div class="DueBox" id="Due27"> </div>
+
+                </td>
+                <td id="Day28Back">
+                    <p class="textArea" id="Day28"> </p>
+                    <div class="DueBox" id="Due28"> </div>
+
+                </td>
+            </tr>
+            <tr>
+                <td id="Day29Back">
+                    <p class="textArea" id="Day29"></p>
+                    <div class="DueBox" id="Due29"> </div>
+
+                </td>
+                <td id="Day30Back">
+                    <p class="textArea" id="Day30"></p>
+                    <div class="DueBox" id="Due30"> </div>
+
+                </td>
+                <td id="Day31Back">
+                    <p class="textArea" id="Day31"></p>
+                    <div class="DueBox" id="Due31"> </div>
+
+                </td>
+                <td id="Day32Back">
+                    <p class="textArea" id="Day32"></p>
+                    <div class="DueBox" id="Due32"> </div>
+
+                </td>
+                <td id="Day33Back">
+                    <p class="textArea" id="Day33"> </p>
+                    <div class="DueBox" id="Due33"> </div>
+
+                </td>
+                <td id="Day34Back">
+                    <p class="textArea" id="Day34"> </p>
+                    <div class="DueBox" id="Due34"> </div>
+
+                </td>
+                <td id="Day35Back">
+                    <p class="textArea" id="Day35"> </p>
+                    <div class="DueBox" id="Due35"> </div>
+
+                </td>
+            </tr>
+            <tr>
+                <td id="Day36Back">
+                    <p class="textArea" id="Day36"></p>
+                    <div class="DueBox" id="Due36"> </div>
+
+                </td>
+                <td id="Day37Back">
+                    <p class="textArea" id="Day37"></p>
+                    <div class="DueBox" id="Due37"> </div>
+
+                </td>
+                <td id="Day38Back">
+                    <p class="textArea" id="Day38"></p>
+                    <div class="DueBox" id="Due38"> </div>
+
+                </td>
+                <td id="Day39Back">
+                    <p class="textArea" id="Day39"></p>
+                    <div class="DueBox" id="Due39"> </div>
+
+                </td>
+                <td id="Day40Back">
+                    <p class="textArea" id="Day40"> </p>
+                    <div class="DueBox" id="Due40"> </div>
+
+                </td>
+                <td id="Day41Back">
+                    <p class="textArea" id="Day41"> </p>
+                    <div class="DueBox" id="Due41"> </div>
+
+                </td>
+                <td id="Day42Back">
+                    <p class="textArea" id="Day42"> </p>
+                    <div class="DueBox" id="Due42"> </div>
+
+                </td>
+            </tr>
+
+        </table>
+    </center><!--Calendar-->
+    <!--#endregion-->
+
+    <br>
+
+
+
+    
+    <button id="settings-link" onclick="Color()" class="SettingsButton">&#x2699;</button>
+
+    <dialog id="UserDateForm" class="UserInputForm">
+        <form id="_SubmitForm">
+
+            <div id="Form1" title="Add Date">
+
+
+
+                <label>
+                    Title
+                    <input type="text" id="Title" placeholder="Math homework..." required />
+
+                </label>
+
+
+                <div class="labelForForm">
+                    <label>
+                        Tag:
+                        <select id="TagBox" required>
+
+                            <option>Math</option>
+                            <option>English</option>
+                            <option>Biology</option>
+                            <option>Chemistry</option>
+                            <option>Physics</option>
+                            <option>Global Polotics</option>
+                            <option>German</option>
+                            <option>French</option>
+                            <option>Spanish</option>
+                            <option>Economics</option>
+                            <option>Enviromental</option>
+                            <option>Psychology</option>
+                            <option>Theory of Knowledge</option>
+                            <option>Design Tech</option>
+                            <option>Engineering</option>
+                            <option>Forensics</option>
+                            <option>Health & Med</option>
+                            <option>Sports Science</option>
+                            <option>Programming</option>
+                            <option>History</option>
+                        </select>
+
+                    </label>
+                </div>
+
+
+
+
+                <div class="AddDateControl">
+
+                    Date: <input type="text" id="datepicker">
+
+                </div>
+
+
+
+
+            </div>
+
+
+        </form>
+    </dialog> <!--User Input For Dates-->
+
+
+
+    <dialog id="UserColorChange" style="width: 50%; height: 45%; background-color: #F4FFEF; user-select: none;">
+
+        <form id="UserColorForm">
+            <div class="labelForForm">
+                <p id="Test4"></p>
+                <label>
+                    Header:
+                    <input type="color" id="colorWell" />
+                </label>
+                <label>
+                    Cell:
+                    <input type="color" id="colorWell2" />
+                </label>
+                <label>
+                    Current:
+                    <input type="color" id="colorWell3" />
+                </label>
+                <label>
+                    Headers:
+                    <input type="color" id="colorWell4" />
+                </label>
+            </div>
+
+          
+
+         
+
+
+        </form>
+    </dialog>
+
+
+    <button id="dialog-link" class="ui-button ui-corner-all ui-widget">
+        <span class="ui-icon ui-icon-newwin"></span>Open Dialog
+    </button>
+
+
+    <script>
+
+        document.getElementById('_SubmitForm').addEventListener("submit", () => {
+            GetDataInput();
+            event.preventDefault();
+
+            window.Test2.close();
+
+        });
+
+        document.getElementById("ResetSaved").addEventListener("click", () => {
+            location.reload();
+            localStorage.clear();
+            Begin();
+            Refreshed();
+
+
+        });
+
+
+        document.getElementById("DropDownChange").addEventListener("change", () => {
+            var select = document.getElementById('DropDownChange');
+            var tag = select.options[select.selectedIndex].text;
+            CheckTag(tag);
+        })
+
+     
+        $("#datepicker").datepicker({
+            inline: true
+
+        });
+        $(function () {
+
+            $(".AddDateControl").controlgroup({
+                "direction": "vertical"
+            });
+        });
+        $("#SubmitFormForDate").button;
+
+        $("#Form1").dialog({
+            autoOpen: false,
+            width: 400,
+            buttons: [
+                {
+                    text: "Ok",
+                    click: function () {
+                        GetDataInput();
+                        $(this).dialog("close");
+                    }
+                },
+                {
+                    text: "Cancel",
+                    click: function () {
+
+                        $(this).dialog("close");
+                    }
+                }
+            ]
+        });
+
+        $("#dialog-link").click(function (event) {
+            $("#Form1").dialog("open");
+            event.preventDefault();
+        });
+        $("#UserColorForm").dialog({
+            autoOpen: false,
+            width: 500,
+            height:500,
+            buttons: [
+                {
+                    text: "Ok",
+                    click: function () {
+                      
+                        $(this).dialog("close");
+                    }
+                },
+                {
+                    text: "Cancel",
+                    click: function () {
+
+                        $(this).dialog("close");
+                    }
+                }
+            ]
+        });
+        $("#settings-link").click(function (event) {
+            $("#UserColorForm").dialog("open");
+            Color();
+            event.preventDefault();
+        });
+
+
+    </script>
+
+
+</body>
+
+
+</html>
+
