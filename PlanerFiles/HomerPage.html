@@ -392,7 +392,7 @@
 
 
 
-    <dialog id="UserColorChange" style="width: 50%; height: 45%; background-color: #F4FFEF; user-select: none;">
+    <div id="UserColorChange" style=" background-color: #F4FFEF; user-select: none;">
 
         <form id="UserColorForm">
             <div class="labelForForm">
@@ -421,7 +421,7 @@
 
 
         </form>
-    </dialog>
+    </div>
 
 
     <button id="dialog-link" class="ui-button ui-corner-all ui-widget">
@@ -501,7 +501,7 @@
                 {
                     text: "Ok",
                     click: function () {
-                      
+                        SaveColor();
                         $(this).dialog("close");
                     }
                 },
