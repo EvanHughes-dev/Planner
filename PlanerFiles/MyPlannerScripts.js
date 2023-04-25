@@ -401,28 +401,46 @@ function ZoomOut() {
 
 //#region Colors
 var r = document.querySelector(':root');
-function updateAll(event) {
+//function updateAll(event) {
 
-    r.style.setProperty('--backgroundHead', event.target.value);
-    localStorage.setItem('color', event.target.value)
+//    r.style.setProperty('--backgroundHead', event.target.value);
+//    localStorage.setItem('color', event.target.value);
+//}
+//function updateAll2(event) {
+
+   
+//    localStorage.setItem('color2', event.target.value);
+    
+//}
+//function updateAll3(event) {
+
+   
+
+//    localStorage.setItem('color3', event.target.value);
+    
+//}
+//function updateAll4(event) {
+
+//    r.style.setProperty('--backgroundHeader', event.target.value);
+//    localStorage.setItem('color4', event.target.value);
+//}
+
+function SaveColor() {
+
+
+    colorWell = document.querySelector("#colorWell");
+    colorWell2 = document.querySelector("#colorWell2")
+    colorWell3 = document.querySelector("#colorWell3")
+    colorWell4 = document.querySelector("#colorWell4")
+
+    r.style.setProperty('--backgroundHead', colorWell.value);
+    localStorage.setItem('color', colorWell.value);
+
+    localStorage.setItem('color2', colorWell2.value);
+    localStorage.setItem('color3', colorWell3.value);
+    r.style.setProperty('--backgroundHeader', colorWell4.value);
+    localStorage.setItem('color4', colorWell4.value);
 }
-function updateAll2(event) {
-
-    Begin();
-    localStorage.setItem('color2', event.target.value)
-}
-function updateAll3(event) {
-
-    Begin();
-
-    localStorage.setItem('color3', event.target.value)
-}
-function updateAll4(event) {
-
-    r.style.setProperty('--backgroundHeader', event.target.value);
-    localStorage.setItem('color4', event.target.value)
-}
-
 
 let colorWell;
 let colorWell2;
@@ -482,10 +500,10 @@ function Color() {
 
         localStorage.setItem('color3', colorWell3.value)
 
-        colorWell.addEventListener("input", updateAll, false);
-        colorWell2.addEventListener("input", updateAll2, false);
-        colorWell3.addEventListener("input", updateAll3, false);
-        colorWell4.addEventListener("input", updateAll4, false);
+        //colorWell.addEventListener("input", updateAll, false);
+        //colorWell2.addEventListener("input", updateAll2, false);
+        //colorWell3.addEventListener("input", updateAll3, false);
+        //colorWell4.addEventListener("input", updateAll4, false);
 
     
 }
