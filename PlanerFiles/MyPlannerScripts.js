@@ -51,10 +51,10 @@ function Refreshed() {
 
 
     var TempTitles;
-    TempTitles = JSON.parse(localStorage.getItem("titles"));
+    TempTitles= JSON.parse(localStorage.getItem("titles"));
 
-    if (localStorage.getItem("titles") !== null && Temp[0] != "") {
-        for (i = 1; i <= Temp.length; i++) {
+    if (localStorage.getItem("titles") !== null && TempTitles[0] != "") {
+        for (i = 1; i <= TempTitles.length; i++) {
 
             Name = TempTitles[i - 1]
             if (Name != null) {
@@ -74,11 +74,11 @@ function Refreshed() {
 
                 li.addEventListener('click', event => {
 
-                    var tempTitles = JSON.parse(localStorage.getItem("titles"));
-                    var tempIndex = tempArray.indexOf(event.target.id)
+                    var TempNameAray = JSON.parse(localStorage.getItem("titles"));
+                    var tempIndex = TempNameAray.indexOf(event.target.id)
                     if (tempIndex > -1) {
 
-                        tempTitles.splice(tempIndex, 1);
+                        TempNameAray.splice(tempIndex, 1);
                         TypedDay = JSON.parse(localStorage.getItem("DaySaved"))
                         TypedMonth = JSON.parse(localStorage.getItem("MonthSaved"))
                         TypedYear = JSON.parse(localStorage.getItem("YearSaved"))
@@ -86,7 +86,7 @@ function Refreshed() {
                         TypedMonth.splice(tempIndex, 1)
                         TypedYear.splice(tempIndex, 1)
                     }
-                    localStorage.setItem("titles", JSON.stringify(tempArray));
+                    localStorage.setItem("titles", JSON.stringify(TempNameAray));
                     document.getElementById("MyList").removeChild(event.target);
                     localStorage.removeItem("DaySaved")
                     localStorage.setItem("DaySaved", JSON.stringify(TypedDay));
