@@ -612,22 +612,22 @@ function SaveTag(Tag) {
 //#endregion
 
 function CheckTag(Tag) {
-    var Temp;
+    var TempTitles;
   
     var TempTag;
-    Temp = JSON.parse(localStorage.getItem("titles"));
+    TempTitles = JSON.parse(localStorage.getItem("titles"));
     TempTag = JSON.parse(localStorage.getItem("Tag"));
-    if (Temp === null || TempTag === null) {
+    if (TempTitles === null || TempTag === null) {
         
         return;
     }
     
-    for (i = 0; i <= Temp.length; i++) {
+    for (i = 0; i <= TempTitles.length; i++) {
        
         if (TempTag[i] != Tag) {
-            document.getElementById(Temp[i]).style.display = "none";
+            document.getElementById(TempTitles[i]).style.display = "none";
 
-        } else { document.getElementById(Temp[i]).style.display = "block"; }
-        if (Tag == "All") { document.getElementById(Temp[i]).style.display = "block"; }
+        } else { document.getElementById(TempTitles[i]).style.display = "block"; }
+        if (Tag == "All") { document.getElementById(TempTitles[i]).style.display = "block"; }
     }
 }
