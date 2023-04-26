@@ -5,7 +5,7 @@
  * 
  */
 
-//begin of setup functions
+//begin of setup function
 //#region Variables
  
 first = 0;
