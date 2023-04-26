@@ -637,3 +637,10 @@ function CheckTag(Tag) {
         if (Tag == "All") { document.getElementById(TempTitles[i]).style.display = "block"; }
     }
 }
+
+function RemoveAll() {
+    
+    localStorage.clear();
+    location.reload();
+    
+}
