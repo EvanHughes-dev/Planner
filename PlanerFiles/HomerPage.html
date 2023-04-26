@@ -424,9 +424,9 @@
     </div>
 
 
-    <button id="dialog-link" class="ui-button ui-corner-all ui-widget">
-        <span class="ui-icon ui-icon-newwin"></span>Open Dialog
-    </button>
+    <div id="ButtonDate">
+        Add Date
+    </div>
 
 
     <script>
@@ -453,9 +453,16 @@
             var select = document.getElementById('DropDownChange');
             var tag = select.options[select.selectedIndex].text;
             CheckTag(tag);
-        })
+        });
 
-     
+        $("#ButtonDate").button({
+
+        });
+        $("#ButtonDate").click(function (event) {
+            $("#Form1").dialog("open");
+            event.preventDefault();
+        });
+
         $("#datepicker").datepicker({
             inline: true
 
@@ -489,7 +496,7 @@
             ]
         });
 
-        $("#dialog-link").click(function (event) {
+        $("#ButtonDate").click(function (event) {
             $("#Form1").dialog("open");
             event.preventDefault();
         });

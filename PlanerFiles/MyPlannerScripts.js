@@ -50,13 +50,13 @@ function Begin() {
 function Refreshed() {
 
 
-    var Temp;
-    Temp = JSON.parse(localStorage.getItem("titles"));
+    var TempTitles;
+    TempTitles = JSON.parse(localStorage.getItem("titles"));
 
     if (localStorage.getItem("titles") !== null && Temp[0] != "") {
         for (i = 1; i <= Temp.length; i++) {
 
-            Name = Temp[i - 1]
+            Name = TempTitles[i - 1]
             if (Name != null) {
 
 
@@ -74,11 +74,11 @@ function Refreshed() {
 
                 li.addEventListener('click', event => {
 
-                    var tempArray = JSON.parse(localStorage.getItem("titles"));
+                    var tempTitles = JSON.parse(localStorage.getItem("titles"));
                     var tempIndex = tempArray.indexOf(event.target.id)
                     if (tempIndex > -1) {
 
-                        tempArray.splice(tempIndex, 1);
+                        tempTitles.splice(tempIndex, 1);
                         TypedDay = JSON.parse(localStorage.getItem("DaySaved"))
                         TypedMonth = JSON.parse(localStorage.getItem("MonthSaved"))
                         TypedYear = JSON.parse(localStorage.getItem("YearSaved"))
