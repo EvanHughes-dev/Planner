@@ -45,10 +45,13 @@ table {
     height: 500px;
     border: none;
     background: #000;
+    table-layout: fixed;
+    
 }
 
-   
+
 table, th, td {
+    
 }
 
 th {
@@ -62,9 +65,12 @@ td {
     text-align: right;
     vertical-align: top;
     color: papayawhip;
+    
     background-color: var(--backgroundBox);
     height: 13.33333333333333%;
-    
+    width: 14.28571428571429%;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 

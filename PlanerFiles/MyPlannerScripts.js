@@ -16,6 +16,7 @@ var NumberOfEvents = 0;
 //#region arrays
 MonthsTest = []
 YearTest = []
+
 var IdForCalenderBackground = ['Day1Back', 'Day2Back', 'Day3Back', 'Day4Back', 'Day5Back', 'Day6Back', 'Day7Back', 'Day8Back', 'Day9Back', 'Day10Back', 'Day11Back', 'Day12Back', 'Day13Back', 'Day14Back', 'Day15Back', 'Day16Back', 'Day17Back', 'Day18Back', 'Day19Back', 'Day20Back', 'Day21Back', 'Day22Back', 'Day23Back', 'Day24Back', 'Day25Back', 'Day26Back', 'Day27Back', 'Day28Back', 'Day29Back', 'Day30Back', 'Day31Back', 'Day32Back', 'Day33Back', 'Day34Back', 'Day35Back', 'Day36Back', 'Day37Back', 'Day38Back', 'Day39Back', 'Day40Back', 'Day41Back', 'Day42Back', 'Day43Back', 'Day44Back']
 var IdForCalender = ['Day1', 'Day2', 'Day3', 'Day4', 'Day5', 'Day6', 'Day7', 'Day8', 'Day9', 'Day10', 'Day11', 'Day12', 'Day13', 'Day14', 'Day15', 'Day16', 'Day17', 'Day18', 'Day19', 'Day20', 'Day21', 'Day22', 'Day23', 'Day24', 'Day25', 'Day26', 'Day27', 'Day28', 'Day29', 'Day30', 'Day31', 'Day32', 'Day33', 'Day34', 'Day35', 'Day36', 'Day37', 'Day38', 'Day39', 'Day40', 'Day41', 'Day42']
 var ClassObjects = [];
@@ -28,7 +29,7 @@ var DateInMonthCheck = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 
 function Begin() {
     
-
+    //Sets Colors for the Calender
     if (localStorage.getItem('color') !== null) {
         r.style.setProperty('--backgroundHead', localStorage.getItem('color'));
     }
@@ -53,7 +54,7 @@ function Refreshed() {
     var TempTitles;
     TempTitles= JSON.parse(localStorage.getItem("titles"));
 
-    if (localStorage.getItem("titles") !== null && TempTitles[0] != "") {
+    if (localStorage.getItem("titles") !== null && TempTitles[0] != "") {//creates the sidebar elements
         for (i = 1; i <= TempTitles.length; i++) {
 
             Name = TempTitles[i - 1]
@@ -106,7 +107,7 @@ function Refreshed() {
 
         }
     }
-}
+}//end of Refreshed
 
 
 //#region Caleneder
@@ -121,7 +122,7 @@ function GoLeft() {
     ReturnDays(a);
 
 
-}
+}//end of GoLeft
 
 
 function ReturnDays(a) {//starts the whole calender event and assigns the values
@@ -133,7 +134,7 @@ function ReturnDays(a) {//starts the whole calender event and assigns the values
     var date = new Date();
     var day = date.getDate()
     var month = date.getMonth() + a;
-    while (month >= 12) {
+    while (month >= 12) {//checks if minth is larger or smaller than it should be
         b = (12 - month) * -1;
         month = b
         c++;
@@ -159,7 +160,7 @@ function ReturnDays(a) {//starts the whole calender event and assigns the values
     for (i = 0; i < DatesForCalender.length; i++) {
 
         ChangeColorChangeBefore(DatesForCalender[i], MonthsTest[i], IdForCalenderBackground[i], day, month, a, i)
-    }
+    }//sets color for each date
     
    
         
@@ -174,7 +175,7 @@ function SetCalenderText(DatesForCalender) {
 
     for (i = 0; i < DatesForCalender.length; i++) {
 
-        run = 0
+         run = 0
         x = DatesForCalender[i]
         y = MonthsTest[i]
         z = YearTest[i]
@@ -517,7 +518,7 @@ function Color() {
 
 
 function GetDataInput() {//gets the data for the user new event input
-    if ($("#datepicker").datepicker("getDate") == null || document.getElementById('Title').value == "") {
+    if ($("#datepicker").datepicker("getDate") == null || document.getElementById('Title').value == "") {//checks if field is empty
         alert("Please fill required fields");
 
     } else {
