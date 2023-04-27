@@ -6,9 +6,9 @@
  */
 
 //begin of setup function
-//#region Variables
+//#region Global Variables
  
-first = 0;
+
 var checkBox1 = "1";
 var a = 0;
 var r = document.querySelector(':root');
@@ -128,8 +128,7 @@ function ReturnDays(a) {//starts the whole calender event and assigns the values
 
     AddListenersBox();
 
-    DatesForCalender = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    var b = 0
+  
     var c = 0
     var date = new Date();
     var day = date.getDate()
