@@ -20,7 +20,7 @@
 <body onload="Begin()">
 
     <div id="mySidebar" class="sidebar">
-        <select id="DropDownChange" style="background:aqua; accent-color:green;">
+        <select id="DropDownChange" class="AddDateDropDown">
             <option>All</option>
             <option>Math</option>
             <option>English</option>
@@ -327,7 +327,7 @@
 
     
     <button id="settings-link" onclick="Color()" class="SettingsButton">&#x2699;</button>
-
+    <!--Begin User Date Input-->
     <dialog id="UserDateForm" class="UserInputForm">
         <form id="_SubmitForm">
 
@@ -431,20 +431,11 @@
 
     <script>
 
-        document.getElementById('_SubmitForm').addEventListener("submit", () => {
-            GetDataInput();
-            event.preventDefault();
-
-            window.Test2.close();
-
-        });
+        
 
         document.getElementById("ResetSaved").addEventListener("click", () => {
-            location.reload();
-            localStorage.clear();
-            Begin();
-            Refreshed();
-
+           
+        RemoveAll();
 
         });
 
@@ -482,8 +473,10 @@
                 {
                     text: "Ok",
                     click: function () {
+
+        
                         GetDataInput();
-                        $(this).dialog("close");
+                       
                     }
                 },
                 {

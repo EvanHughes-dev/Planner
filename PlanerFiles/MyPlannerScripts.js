@@ -517,36 +517,42 @@ function Color() {
 
 
 function GetDataInput() {//gets the data for the user new event input
-    var currentDate = $("#datepicker").datepicker("getDate");
+    if ($("#datepicker").datepicker("getDate") == null || document.getElementById('Title').value == "") {
+        alert("Please fill required fields");
 
-    
-    var Title;
-    var temp;
-    var DateDueDay =currentDate.getDate();
-    var DateDueMonth = currentDate.getMonth();
-    var DateDueYear = currentDate.getFullYear();
-    var select = document.getElementById('TagBox');
-    var tag = select.options[select.selectedIndex].text;
+    } else {
+        var currentDate = $("#datepicker").datepicker("getDate");
+
+
+        var Title;
+
+        var DateDueDay = currentDate.getDate();
+        var DateDueMonth = currentDate.getMonth();
+        var DateDueYear = currentDate.getFullYear();
+        var select = document.getElementById('TagBox');
+        var tag = select.options[select.selectedIndex].text;
+
+
+        if (DateDueMonth == 12) {
+            temp = 1;
+
+        } else { temp = DateDueMonth }
+
+
+        Title = document.getElementById('Title').value;
+
+
+        CreateCheckBox(Title);
+        StoreDate(DateDueDay, DateDueMonth, DateDueYear);
+        SaveTag(tag);
+
+
+        document.getElementById('datepicker').value = "";
+        document.getElementById('Title').value = "";
+
+        $("#Form1").dialog("close");
+    }
   
- 
-    if (DateDueMonth == 12) {
-        temp = 1;
-
-    } else { temp = DateDueMonth }
-
-
-    Title = document.getElementById('Title').value;
-
-    
-    CreateCheckBox(Title);
-    StoreDate(DateDueDay, DateDueMonth, DateDueYear);
-    SaveTag(tag);
-
-
-    document.getElementById('datepicker').value = "";
-    document.getElementById('Title').value = "";
-
-
 
 
 }//GetDataInput()
@@ -629,4 +635,11 @@ function CheckTag(Tag) {
         } else { document.getElementById(TempTitles[i]).style.display = "block"; }
         if (Tag == "All") { document.getElementById(TempTitles[i]).style.display = "block"; }
     }
+}
+
+function RemoveAll() {
+    
+    localStorage.clear();
+    location.reload();
+    
 }
