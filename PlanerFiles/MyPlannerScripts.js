@@ -13,6 +13,7 @@ const MonthCalenderId = "MonthCalender";
 
 var checkBox1 = "1";
 var a = 0;
+var currentYear;
 var r = document.querySelector(':root');
 var NumberOfEvents = 0;
 //#region arrays
@@ -156,6 +157,8 @@ function ReturnDays(a) {//starts the whole calender event and assigns the values
 
     //assigns the month title
     document.getElementById('Month').innerHTML = AllMonths[month] + ": " + year;
+    document.getElementById('YearOfMonth').innerHTML = year;
+    currentYear = year;
 
     for (i = 0; i < DatesForCalender.length; i++) {
 
@@ -648,8 +651,10 @@ function RemoveAll() {
 
 function ZoomToMonthView() {
     document.getElementById(MainCalenderId).style.display = "none";
+  
     document.getElementById(MonthCalenderId).style.display = "revert";
     document.getElementById(YearCalenderId).style.display = "none";
+
    
 }
 
