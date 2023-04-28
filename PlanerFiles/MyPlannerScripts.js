@@ -157,8 +157,6 @@ function ReturnDays(a) {//starts the whole calender event and assigns the values
     //assigns the month title
     document.getElementById('Month').innerHTML = AllMonths[month] + ": " + year;
 
-
-
     for (i = 0; i < DatesForCalender.length; i++) {
 
         ChangeColorChangeBefore(DatesForCalender[i], MonthsTest[i], IdForCalenderBackground[i], day, month, a, i)
