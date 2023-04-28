@@ -7,15 +7,17 @@
 
 //begin of setup function
 //#region Global Variables
- 
+const MainCalenderId = "MainCalender";
+const YearCalenderId = "YearCalenderId";
+const MonthCalenderId = "MonthCalender";
 
 var checkBox1 = "1";
 var a = 0;
 var r = document.querySelector(':root');
 var NumberOfEvents = 0;
 //#region arrays
-MonthsTest = []
-YearTest = []
+MonthsTest = [];
+YearTest = [];
 
 var IdForCalenderBackground = ['Day1Back', 'Day2Back', 'Day3Back', 'Day4Back', 'Day5Back', 'Day6Back', 'Day7Back', 'Day8Back', 'Day9Back', 'Day10Back', 'Day11Back', 'Day12Back', 'Day13Back', 'Day14Back', 'Day15Back', 'Day16Back', 'Day17Back', 'Day18Back', 'Day19Back', 'Day20Back', 'Day21Back', 'Day22Back', 'Day23Back', 'Day24Back', 'Day25Back', 'Day26Back', 'Day27Back', 'Day28Back', 'Day29Back', 'Day30Back', 'Day31Back', 'Day32Back', 'Day33Back', 'Day34Back', 'Day35Back', 'Day36Back', 'Day37Back', 'Day38Back', 'Day39Back', 'Day40Back', 'Day41Back', 'Day42Back', 'Day43Back', 'Day44Back']
 var IdForCalender = ['Day1', 'Day2', 'Day3', 'Day4', 'Day5', 'Day6', 'Day7', 'Day8', 'Day9', 'Day10', 'Day11', 'Day12', 'Day13', 'Day14', 'Day15', 'Day16', 'Day17', 'Day18', 'Day19', 'Day20', 'Day21', 'Day22', 'Day23', 'Day24', 'Day25', 'Day26', 'Day27', 'Day28', 'Day29', 'Day30', 'Day31', 'Day32', 'Day33', 'Day34', 'Day35', 'Day36', 'Day37', 'Day38', 'Day39', 'Day40', 'Day41', 'Day42']
@@ -65,7 +67,7 @@ function Refreshed() {
 
                 var t = document.createTextNode(Name);
                 li.appendChild(t);
-                li.setAttribute("id", Name)
+                li.setAttribute("id", Name);
 
 
 
@@ -643,4 +645,18 @@ function RemoveAll() {
     localStorage.clear();
     location.reload();
     
+}
+
+
+function ZoomToMonthView() {
+    document.getElementById(MainCalenderId).style.display = "none";
+    document.getElementById(MonthCalenderId).style.display = "revert";
+    document.getElementById(YearCalenderId).style.display = "none";
+   
+}
+
+function ZoomToYear() {
+    document.getElementById(MainCalenderId).style.display = "none";
+    document.getElementById(MonthCalenderId).style.display = "none";
+    document.getElementById(YearCalenderId).style.display = "revert";
 }
