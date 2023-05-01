@@ -116,19 +116,19 @@ function Refreshed() {
 //#region Caleneder
 function GoRight() {
     a++;
-    ReturnDays(a);
+    ReturnDays();
  
 
 }//end of GoRight
 function GoLeft() {
     a--;
-    ReturnDays(a);
+    ReturnDays();
 
 
 }//end of GoLeft
 
 
-function ReturnDays(a) {//starts the whole calender event and assigns the values
+function ReturnDays() {//starts the whole calender event and assigns the values
 
     AddListenersBox();
 
@@ -136,6 +136,7 @@ function ReturnDays(a) {//starts the whole calender event and assigns the values
     var c = 0
     var date = new Date();
     var day = date.getDate()
+    
     var month = date.getMonth() + a;
     while (month >= 12) {//checks if minth is larger or smaller than it should be
         b = (12 - month) * -1;
@@ -651,9 +652,9 @@ function RemoveAll() {
 
 function ZoomToMonthView() {
     document.getElementById(MainCalenderId).style.display = "none";
-  
-    document.getElementById(MonthCalenderId).style.display = "revert";
     document.getElementById(YearCalenderId).style.display = "none";
+    document.getElementById(MonthCalenderId).style.display = "revert";
+   
 
    
 }
@@ -662,4 +663,27 @@ function ZoomToYear() {
     document.getElementById(MainCalenderId).style.display = "none";
     document.getElementById(MonthCalenderId).style.display = "none";
     document.getElementById(YearCalenderId).style.display = "revert";
+}
+
+function ZoomToDay(aValue) {
+    var tempA = 0;
+   
+    for (var i = 0; i < currentYear-new Date().getFullYear(); i++) {
+      
+        tempA += 12;
+        aValue += 12;
+    }
+    for (var i = 0; i < new Date().getFullYear()-currentYear; i++) {
+        tempA -= 12;
+        aValue -= 12;
+    }
+    a = aValue-new Date().getMonth();
+ //fix code. Doesn't bring to correct month
+    
+   
+    document.getElementById(MonthCalenderId).style.display = "none";
+    document.getElementById(YearCalenderId).style.display = "none";
+    document.getElementById(MainCalenderId).style.display = "revert";
+
+    ReturnDays();
 }

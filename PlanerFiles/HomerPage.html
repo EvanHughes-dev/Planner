@@ -331,25 +331,25 @@
 
        
         <tr>
-            <td class="MonthTd">January</td>
-            <td class="MonthTd">Febuary</td>
-            <td class="MonthTd">March</td>
+            <td class="MonthTd" id="MonJan">January</td>
+            <td class="MonthTd" id="MonFeb">Febuary</td>
+            <td class="MonthTd" id="MonMar">March</td>
         </tr>
         <tr>
-            <td class="MonthTd">April</td>
-            <td class="MonthTd">May</td>
-            <td class="MonthTd">June</td>
+            <td class="MonthTd" id="MonApr">April</td>
+            <td class="MonthTd" id="MonMay">May</td>
+            <td class="MonthTd" id="MonJun">June</td>
         </tr>
         <tr>
-            <td class="MonthTd">July</td>
-            <td class="MonthTd">August</td>
-            <td class="MonthTd">Spetember</td>
+            <td class="MonthTd" id="MonJul">July</td>
+            <td class="MonthTd" id="MonAug">August</td>
+            <td class="MonthTd" id="MonSep">Spetember</td>
 
         </tr>
         <tr>
-            <td class="MonthTd">October</td>
-            <td class="MonthTd">November</td>
-            <td class="MonthTd">December</td>
+            <td class="MonthTd" id="MonOct">October</td>
+            <td class="MonthTd" id="MonNov">November</td>
+            <td class="MonthTd" id="MonDec">December</td>
         </tr>
            
 
@@ -562,9 +562,37 @@
             event.preventDefault();
         });
 
-        document.getElementById("Month").addEventListener("click", () => {
-           
+     
+        //#region Calender Month Click
+        document.getElementById("MonJan").addEventListener("click", () => {
+            ZoomToDay(0);
+        }); document.getElementById("MonFeb").addEventListener("click", () => {
+            ZoomToDay(1);
+        }); document.getElementById("MonMar").addEventListener("click", () => {
+            ZoomToDay(2);
+        }); document.getElementById("MonApr").addEventListener("click", () => {
+            ZoomToDay(3);
+        }); document.getElementById("MonMay").addEventListener("click", () => {
+            ZoomToDay(4);
+        }); document.getElementById("MonJun").addEventListener("click", () => {
+            ZoomToDay(5);
+        }); document.getElementById("MonJul").addEventListener("click", () => {
+            ZoomToDay(6);
+        }); document.getElementById("MonAug").addEventListener("click", () => {
+            ZoomToDay(7);
+        }); document.getElementById("MonSep").addEventListener("click", () => {
+            ZoomToDay(8);
+        }); document.getElementById("MonOct").addEventListener("click", () => {
+            ZoomToDay(9);
+        }); document.getElementById("MonNov").addEventListener("click", () => {
+            ZoomToDay(10);
+        }); document.getElementById("MonDec").addEventListener("click", () => {
+            ZoomToDay(11);
         });
+
+
+        //#endregion
+
 
     </script>
 
