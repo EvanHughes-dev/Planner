@@ -16,9 +16,17 @@ var a = 0;
 var currentYear;
 var r = document.querySelector(':root');
 var NumberOfEvents = 0;
+
+const defaultColor = "#8DBCBB";//Color for Title
+const defaultColor2 = "#74C2E1";//Color for non current table element
+
+const defaultColor3 = "#0191C8";//Color for Current Table Element
+const defaultColor4 = "#005B9A";//color for table headers
+
 //#region arrays
 MonthsTest = [];
 YearTest = [];
+
 
 var IdForCalenderBackground = ['Day1Back', 'Day2Back', 'Day3Back', 'Day4Back', 'Day5Back', 'Day6Back', 'Day7Back', 'Day8Back', 'Day9Back', 'Day10Back', 'Day11Back', 'Day12Back', 'Day13Back', 'Day14Back', 'Day15Back', 'Day16Back', 'Day17Back', 'Day18Back', 'Day19Back', 'Day20Back', 'Day21Back', 'Day22Back', 'Day23Back', 'Day24Back', 'Day25Back', 'Day26Back', 'Day27Back', 'Day28Back', 'Day29Back', 'Day30Back', 'Day31Back', 'Day32Back', 'Day33Back', 'Day34Back', 'Day35Back', 'Day36Back', 'Day37Back', 'Day38Back', 'Day39Back', 'Day40Back', 'Day41Back', 'Day42Back', 'Day43Back', 'Day44Back']
 var IdForCalender = ['Day1', 'Day2', 'Day3', 'Day4', 'Day5', 'Day6', 'Day7', 'Day8', 'Day9', 'Day10', 'Day11', 'Day12', 'Day13', 'Day14', 'Day15', 'Day16', 'Day17', 'Day18', 'Day19', 'Day20', 'Day21', 'Day22', 'Day23', 'Day24', 'Day25', 'Day26', 'Day27', 'Day28', 'Day29', 'Day30', 'Day31', 'Day32', 'Day33', 'Day34', 'Day35', 'Day36', 'Day37', 'Day38', 'Day39', 'Day40', 'Day41', 'Day42']
@@ -37,17 +45,34 @@ function Begin() {
         r.style.setProperty('--backgroundHead', localStorage.getItem('color'));
     }
     else {
-        r.style.setProperty('--backgroundHead', "#8DBCBB");
+        r.style.setProperty('--backgroundHead', defaultColor);
+        localStorage.setItem('color', defaultColor);
     }
     if (localStorage.getItem('color4') !== null) {
         r.style.setProperty('--backgroundHeader', localStorage.getItem('color4'));
     }
     else {
-        r.style.setProperty('--backgroundHeader', "#005B9A");
+        r.style.setProperty('--backgroundHeader', defaultColor4);
+        localStorage.setItem('color4', defaultColor4);
     }
-    ReturnDays(0);
+   
+    if (localStorage.getItem('color2') != null) {
+
+        r.style.setProperty('--backgroundBox', localStorage.getItem('color2'));
+    } else {
+        r.style.setProperty('--backgroundBox', defaultColor2);
+        localStorage.setItem('color2', defaultColor2);
+      
+    }
+    if (localStorage.getItem('color3') == null) {
+        localStorage.setItem('color3', defaultColor3);
+    }
+    if (JSON.parse(localStorage.getItem("titles")) !== null) { Refreshed(); }
     
-    if (JSON.parse(localStorage.getItem("titles")) !== null){ Refreshed();}
+        ReturnDays();
+    
+  
+    
     
  
 }
@@ -129,7 +154,7 @@ function GoLeft() {
 
 
 function ReturnDays() {//starts the whole calender event and assigns the values
-
+  
     AddListenersBox();
 
   
@@ -149,6 +174,7 @@ function ReturnDays() {//starts the whole calender event and assigns the values
         month = b
         c--;
     }
+    
     var year = date.getFullYear() + c;
     Day(day, month, year);
 
@@ -166,19 +192,20 @@ function ReturnDays() {//starts the whole calender event and assigns the values
         ChangeColorChangeBefore(DatesForCalender[i], MonthsTest[i], IdForCalenderBackground[i], day, month, a, i)
     }//sets color for each date
     
-   
+    
         
     SetCalenderText(DatesForCalender);
-
+    
 
 } //ReturnDays()
 
 function SetCalenderText(DatesForCalender) {
     //Sets what is displayed in the calender text area
     for (i = 0; i < DatesForCalender.length; i++) { document.getElementById(DueArray[i]).innerHTML = " " }
-
+    
     for (i = 0; i < DatesForCalender.length; i++) {
 
+        
          run = 0
         x = DatesForCalender[i]
         y = MonthsTest[i]
@@ -187,26 +214,28 @@ function SetCalenderText(DatesForCalender) {
         SaveMonth = JSON.parse(localStorage.getItem("MonthSaved"))
         SaveYear = JSON.parse(localStorage.getItem("YearSaved"))
 
-
+        
         //document.writeln(JSON.parse(localStorage.getItem("MonthSaved")));
         //this decides what is shown on the calender 
-        for (k = 0; k < SaveYear.length; k++) {
+        if (SaveYear != null) {
+            for (k = 0; k < SaveYear.length; k++) {
 
-            if (x == SaveDay[k] && y == SaveMonth[k] && z == SaveYear[k]) {
-                SetText = JSON.parse(localStorage.getItem("titles"))
-                if (y == 12 && SaveYear[k] == 2022) {
-                    document.writeln(SaveMonth[k]);
+                if (x == SaveDay[k] && y == SaveMonth[k] && z == SaveYear[k]) {
+                    SetText = JSON.parse(localStorage.getItem("titles"))
+                    if (y == 12 && SaveYear[k] == 2022) {
+                        document.writeln(SaveMonth[k]);
+                    }
+                    if (run != 0) { document.getElementById(DueArray[i]).innerHTML = document.getElementById(DueArray[i]).innerHTML + "</br>" + SetText[k]; }
+                    else { document.getElementById(DueArray[i]).innerHTML = SetText[k]; run++; }
+
                 }
-                if (run != 0) { document.getElementById(DueArray[i]).innerHTML = document.getElementById(DueArray[i]).innerHTML + "</br>" + SetText[k]; }
-                else { document.getElementById(DueArray[i]).innerHTML = SetText[k]; run++; }
 
             }
-
         }
-
-
+       
 
     }
+    
 }
 function ChangeColorChangeBefore(ValueDay, ValueMonth, Day, Current, month, a, i) {
     var x = localStorage.getItem('color3');
@@ -454,11 +483,7 @@ let colorWell4;
 function Color() {
 
     
-    const defaultColor = "#8DBCBB";
-    const defaultColor2 = "#74C2E1";
-
-    const defaultColor3 = "#0191C8";
-    const defaultColor4 = "#005B9A";
+    
 
 
 
@@ -649,22 +674,83 @@ function RemoveAll() {
     
 }
 
-
+var IdForMonths = ["MonJan", "MonFeb", "MonMar", "MonApr", "MonMay", "MonJun", "MonJul", "MonAug", "MonSep", "MonOct", "MonNov", "MonDec"];
 function ZoomToMonthView() {
     document.getElementById(MainCalenderId).style.display = "none";
     document.getElementById(YearCalenderId).style.display = "none";
     document.getElementById(MonthCalenderId).style.display = "revert";
-   
 
+    CheckColorOfMonth();
+    
    
 }
 
+function CheckColorOfMonth() {
+    if (currentYear == new Date().getFullYear()) {
+        for (var i = 0; i < 12; i++) {
+            if (i == new Date().getMonth()) {
+                document.getElementById(IdForMonths[i]).style.backgroundColor = localStorage.getItem('color3');
+
+            } else {
+                document.getElementById(IdForMonths[i]).style.backgroundColor = localStorage.getItem('color2');
+            }
+        }
+    } else {
+        for (var i = 0; i < 12; i++) {
+
+            document.getElementById(IdForMonths[i]).style.backgroundColor = localStorage.getItem('color2');
+
+        }
+    }
+}
+var IdForYearTDS = ["Year1", "Year2", "Year3", "Year4", "Year5", "Year6", "Year7", "Year8", "Year9", "Year10", "Year11", "Year12"];
 function ZoomToYear() {
     document.getElementById(MainCalenderId).style.display = "none";
     document.getElementById(MonthCalenderId).style.display = "none";
     document.getElementById(YearCalenderId).style.display = "revert";
+    document.getElementById(IdForYearTDS[0]).innerHTML = currentYear-4;
+    document.getElementById(IdForYearTDS[1]).innerHTML = currentYear-3;
+    document.getElementById(IdForYearTDS[2]).innerHTML = currentYear-2;
+    document.getElementById(IdForYearTDS[3]).innerHTML = currentYear-1;
+    document.getElementById(IdForYearTDS[4]).innerHTML = currentYear;
+    document.getElementById(IdForYearTDS[5]).innerHTML = currentYear+1;
+    document.getElementById(IdForYearTDS[6]).innerHTML = currentYear+2;
+    document.getElementById(IdForYearTDS[7]).innerHTML = currentYear+3;
+    document.getElementById(IdForYearTDS[8]).innerHTML = currentYear+4;
+    document.getElementById("YearRange").innerHTML = (currentYear - 4) + " - " + (currentYear + 4);
+    for (var i = -4; i < 5; i++) {
+        CheckIfCurrentYear(i);
+       
+    }
 }
 
+function CheckIfCurrentYear(Year) {
+    var tempArraySpot = Year + 4;
+    
+    if ((currentYear + Year) == new Date().getFullYear()) {
+    
+        
+        document.getElementById(IdForYearTDS[tempArraySpot]).style.backgroundColor = localStorage.getItem('color3');
+
+    } else {
+       
+        document.getElementById(IdForYearTDS[tempArraySpot]).style.backgroundColor = localStorage.getItem('color2');
+    }
+    
+}
+
+function ChangeYearInYear(Direction) {
+    currentYear += (9 * Direction);
+    
+    ZoomToYear();
+}
+function AssignYear(Direction) {
+    currentYear += Direction;
+    document.getElementById("YearOfMonth").innerHTML = currentYear;
+    ZoomToMonthView();
+    
+    
+}//goes from Years view to months view
 function ZoomToDay(aValue) {
     var tempA = 0;
    
@@ -678,12 +764,19 @@ function ZoomToDay(aValue) {
         aValue -= 12;
     }
     a = aValue-new Date().getMonth();
- //fix code. Doesn't bring to correct month
-    
+
    
     document.getElementById(MonthCalenderId).style.display = "none";
     document.getElementById(YearCalenderId).style.display = "none";
     document.getElementById(MainCalenderId).style.display = "revert";
 
     ReturnDays();
+}
+
+function ChangeYear(Direction) {
+    //this part uses subtraction because addition combine strings instead of ints
+    currentYear = document.getElementById('YearOfMonth').innerHTML - Direction;
+    document.getElementById('YearOfMonth').innerHTML = currentYear;
+    CheckColorOfMonth();
+    
 }

@@ -94,12 +94,11 @@ th {
    display:none;
 }
 
-.MonthTd{
-    width:33.3333%;
-    height:21.25%;
-    background-color:aquamarine;
-    text-align:center;
-
+.MonthTd {
+    width: 33.3333%;
+    height: 21.25%;
+    background: var(--backgroundBox);
+    text-align: center;
 }
 .MonthTH {
     width: 900px;
@@ -122,6 +121,12 @@ th {
    }
 .YearCalender {
     display: none;
+}
+.YearTD {
+    width: 33.3333%;
+    height: 21.25%;
+   background-color:blue;
+    text-align: center;
 }
 /* The sidebar menu */
 .sidebar {
