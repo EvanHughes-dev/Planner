@@ -5,7 +5,7 @@
  * 
  */
 
-//begin of setup function
+
 //#region Global Variables
 const MainCalenderId = "MainCalender";
 const YearCalenderId = "YearCalenderId";
@@ -39,7 +39,7 @@ var DateInMonthCheck = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 //#endregion
 
 function Begin() {
-    
+
     //Sets Colors for the Calender
     if (localStorage.getItem('color') !== null) {
         r.style.setProperty('--backgroundHead', localStorage.getItem('color'));
@@ -77,8 +77,7 @@ function Begin() {
  
 }
 function Refreshed() {
-
-
+   
     var TempTitles;
     TempTitles= JSON.parse(localStorage.getItem("titles"));
 
@@ -123,7 +122,7 @@ function Refreshed() {
                     localStorage.setItem("MonthSaved", JSON.stringify(TypedMonth));
                     localStorage.removeItem("YearSaved")
                     localStorage.setItem("YearSaved", JSON.stringify(TypedYear));
-                    ReturnDays(a);
+                    ReturnDays();
                 });//this removes a item from the to do list
 
 
@@ -259,7 +258,10 @@ else{
 }
 
 function AddListenersBox() {
-    document.getElementById(IdForCalenderBackground[0]).addEventListener('click', event => { ZoomIn(0) });
+    document.getElementById(IdForCalenderBackground[0]).addEventListener('click', event => {
+        ZoomIn(0);
+        document.getElementById(IdForCalenderBackground[0]).style.opacity = 1;
+    });
     document.getElementById(IdForCalenderBackground[1]).addEventListener('click', event => { ZoomIn(1) });
     document.getElementById(IdForCalenderBackground[2]).addEventListener('click', event => { ZoomIn(2) });
     document.getElementById(IdForCalenderBackground[3]).addEventListener('click', event => { ZoomIn(3) });
@@ -276,7 +278,10 @@ function AddListenersBox() {
     document.getElementById(IdForCalenderBackground[14]).addEventListener('click', event => { ZoomIn(14) });
     document.getElementById(IdForCalenderBackground[15]).addEventListener('click', event => { ZoomIn(15) });
     document.getElementById(IdForCalenderBackground[16]).addEventListener('click', event => { ZoomIn(16) });
-    document.getElementById(IdForCalenderBackground[17]).addEventListener('click', event => { ZoomIn(17) });
+    document.getElementById(IdForCalenderBackground[17]).addEventListener('click', event => {
+        ZoomIn(17);
+        
+});
     document.getElementById(IdForCalenderBackground[18]).addEventListener('click', event => { ZoomIn(18) });
     document.getElementById(IdForCalenderBackground[19]).addEventListener('click', event => { ZoomIn(19) });
     document.getElementById(IdForCalenderBackground[20]).addEventListener('click', event => { ZoomIn(20) });
@@ -312,6 +317,9 @@ function daysInMonth(month, year) {//how many days are in a given month of a giv
 }//daysInMonth(month, year)
 
 function Day(date, month, year) {  //function decides what day each cell of the 42 are
+    if (month == 1) {
+        
+    }
     var DayOfWeek = new Date(year, month, 1).getDay(); // gets days in current week
     
     var DayTemp = 1;//assigns a temp day
@@ -322,7 +330,7 @@ function Day(date, month, year) {  //function decides what day each cell of the 
     MonthBefore = new Date(year, month , 0);//finds number of days in last month
     
 
-    for (i = 0; i < DatesForCalender.length;) {
+    for (i = 0; i < DatesForCalender.length;i++) {
         if (i <= DayOfWeek-1) {// if the number of times run is less then the position of the first day in the calender
             var DateInWeek = 6 - DayOfWeek
            
@@ -335,24 +343,31 @@ function Day(date, month, year) {  //function decides what day each cell of the 
             } else { MonthsTest[i] = 11; YearTest[i] = year - 1 }
           
         } else if (i >= DayOfWeek && i - DayOfWeek <  daysInMonth(month+1, year)) { // if the number of times run falls in the current month
-
+            
             DatesForCalender[i] = DayTemp//day temp adds by one 
             DayTemp++;
+          
             MonthsTest[i] = month 
             YearTest[i] = year
         } else {
-
+           
             if (month <= 10) {
-                MonthsTest[i] = month += 1;
+               
+                MonthsTest[i] = month + 1;
                 YearTest[i] = year+1
-
-            } else { MonthsTest[i] = 1; YearTest[i]= year+1 }
+               
+            } else {
+                
+                MonthsTest[i] = 1; YearTest[i] = year + 1
+            }
            
             DatesForCalender[i] = DayTemp2//days after the month ends
+           
             DayTemp2++;
+            
         }
 
-        i++;
+       
     
     }//for i=0
 
@@ -434,29 +449,7 @@ function ZoomOut() {
 
 //#region Colors
 var r = document.querySelector(':root');
-//function updateAll(event) {
 
-//    r.style.setProperty('--backgroundHead', event.target.value);
-//    localStorage.setItem('color', event.target.value);
-//}
-//function updateAll2(event) {
-
-   
-//    localStorage.setItem('color2', event.target.value);
-    
-//}
-//function updateAll3(event) {
-
-   
-
-//    localStorage.setItem('color3', event.target.value);
-    
-//}
-//function updateAll4(event) {
-
-//    r.style.setProperty('--backgroundHeader', event.target.value);
-//    localStorage.setItem('color4', event.target.value);
-//}
 
 function SaveColor() {
 
@@ -673,7 +666,7 @@ function RemoveAll() {
     location.reload();
     
 }
-
+//#region Zoom Calender
 var IdForMonths = ["MonJan", "MonFeb", "MonMar", "MonApr", "MonMay", "MonJun", "MonJul", "MonAug", "MonSep", "MonOct", "MonNov", "MonDec"];
 function ZoomToMonthView() {
     document.getElementById(MainCalenderId).style.display = "none";
@@ -780,3 +773,6 @@ function ChangeYear(Direction) {
     CheckColorOfMonth();
     
 }
+//#endregion
+
+

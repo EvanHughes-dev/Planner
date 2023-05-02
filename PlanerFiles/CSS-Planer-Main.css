@@ -55,7 +55,7 @@ table {
 
 
 table, th, td {
-    
+    z-index:1;
 }
 
 
@@ -74,6 +74,7 @@ th {
         opacity: 0.9;
         
     }
+  
 
 .CalenderTD {
     text-align: right;
@@ -327,6 +328,7 @@ li:hover {
     top:0px;
     left:0px;
     align-content:center;
+    z-index:5;
 }
 .BigCell {
     display: none;
@@ -341,8 +343,8 @@ li:hover {
     vertical-align: top;
     color: papayawhip;
     background-color: #74C2E1;
-    border:solid;
-    border-color:black;
+    border: solid;
+    border-color: black;
     
 }
 
