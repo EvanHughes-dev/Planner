@@ -258,10 +258,7 @@ else{
 }
 
 function AddListenersBox() {
-    document.getElementById(IdForCalenderBackground[0]).addEventListener('click', event => {
-        ZoomIn(0);
-        document.getElementById(IdForCalenderBackground[0]).style.opacity = 1;
-    });
+    document.getElementById(IdForCalenderBackground[0]).addEventListener('click', event => {ZoomIn(0)});
     document.getElementById(IdForCalenderBackground[1]).addEventListener('click', event => { ZoomIn(1) });
     document.getElementById(IdForCalenderBackground[2]).addEventListener('click', event => { ZoomIn(2) });
     document.getElementById(IdForCalenderBackground[3]).addEventListener('click', event => { ZoomIn(3) });
@@ -278,10 +275,7 @@ function AddListenersBox() {
     document.getElementById(IdForCalenderBackground[14]).addEventListener('click', event => { ZoomIn(14) });
     document.getElementById(IdForCalenderBackground[15]).addEventListener('click', event => { ZoomIn(15) });
     document.getElementById(IdForCalenderBackground[16]).addEventListener('click', event => { ZoomIn(16) });
-    document.getElementById(IdForCalenderBackground[17]).addEventListener('click', event => {
-        ZoomIn(17);
-        
-});
+    document.getElementById(IdForCalenderBackground[17]).addEventListener('click', event => {ZoomIn(17);});
     document.getElementById(IdForCalenderBackground[18]).addEventListener('click', event => { ZoomIn(18) });
     document.getElementById(IdForCalenderBackground[19]).addEventListener('click', event => { ZoomIn(19) });
     document.getElementById(IdForCalenderBackground[20]).addEventListener('click', event => { ZoomIn(20) });
