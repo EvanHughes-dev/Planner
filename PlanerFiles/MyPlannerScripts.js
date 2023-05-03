@@ -311,21 +311,19 @@ function daysInMonth(month, year) {//how many days are in a given month of a giv
 }//daysInMonth(month, year)
 
 function Day(date, month, year) {  //function decides what day each cell of the 42 are
-    if (month == 1) {
-        
-    }
+    
     var DayOfWeek = new Date(year, month, 1).getDay(); // gets days in current week
     
     var DayTemp = 1;//assigns a temp day
     var DayTemp2 = 1;
-   // document.getElementById('test').innerHTML = MonthsTest
+   
 
     
     MonthBefore = new Date(year, month , 0);//finds number of days in last month
     
 
     for (i = 0; i < DatesForCalender.length;i++) {
-        if (i <= DayOfWeek-1) {// if the number of times run is less then the position of the first day in the calender
+        if (i < DayOfWeek) {// if the number of times run is less then the position of the first day in the calender
             var DateInWeek = 6 - DayOfWeek
            
             DatesForCalender[5-DateInWeek-i] = MonthBefore.getDate() - i; // asign the first day that would be seen of the last month
@@ -389,55 +387,7 @@ function closeNav() {//closes the sidebar
 
 
 
-var DueDatesCheckedDay = [0];
-var DueDatesCheckedMonth = [0];
-var DueDatesCheckedYear = [0];
 
-function ZoomIn(Calender) {
-    
- var run = 0
-    document.getElementById("Block").style.display = 'block';
-    document.getElementById("BigCell").style.display = 'block';
-    document.getElementById("BigDateBox").innerHTML = DatesForCalender[Calender];
-    SetText = JSON.parse(localStorage.getItem("titles"))
-    x = DatesForCalender[Calender]
-    y = MonthsTest[Calender]
-    z = YearTest[Calender]
-    SaveDay = JSON.parse(localStorage.getItem("DaySaved"))
-    SaveMonth = JSON.parse(localStorage.getItem("MonthSaved"))
-    SaveYear = JSON.parse(localStorage.getItem("YearSaved"))
-    
-   
-    
-    
-
-    for (k = 0; k < SaveYear.length; k++) {
-       // document.writeln(SaveYear.length)
-        if (x == SaveDay[k] && y == SaveMonth[k] && z == SaveYear[k]) {
-            
-            
-            if (run != 0) { document.getElementById("BigDueBox").innerHTML = document.getElementById("BigDueBox").innerHTML + "</br>" + SetText[k]; }
-            else { document.getElementById("BigDueBox").innerHTML = SetText[k]; run++; }
-        }
-
-    }
-    if (DateInMonthCheck[Calender] == 1) {
-        document.getElementById("BigCell").style.backgroundColor = localStorage.getItem('color2');
-    } else if (DateInMonthCheck[Calender] == 2) {
-        document.getElementById("BigCell").style.backgroundColor = localStorage.getItem('color3');
-    } else {
-        document.getElementById("BigCell").style.backgroundColor = "#8C8984";
-    }
-    
-
-    
-    
-}
-function ZoomOut() {
-    document.getElementById("Block").style.display = 'none';
-    document.getElementById("BigCell").style.display = 'none';
-  
-}
 //#endregion
 
 
@@ -738,7 +688,7 @@ function AssignYear(Direction) {
     
     
 }//goes from Years view to months view
-function ZoomToDay(aValue) {
+function ZoomToDay(aValue) {//goes from month to day
     var tempA = 0;
    
     for (var i = 0; i < currentYear-new Date().getFullYear(); i++) {
@@ -760,13 +710,58 @@ function ZoomToDay(aValue) {
     ReturnDays();
 }
 
-function ChangeYear(Direction) {
-    //this part uses subtraction because addition combine strings instead of ints
-    currentYear = document.getElementById('YearOfMonth').innerHTML - Direction;
-    document.getElementById('YearOfMonth').innerHTML = currentYear;
-    CheckColorOfMonth();
-    
+
+
+var DueDatesCheckedDay = [0];
+var DueDatesCheckedMonth = [0];
+var DueDatesCheckedYear = [0];
+
+function ZoomIn(Calender) {//zoom in on a single calender day
+
+    var run = 0
+    document.getElementById("Block").style.display = 'block';
+    document.getElementById("BigCell").style.display = 'block';
+    document.getElementById("BigDateBox").innerHTML = DatesForCalender[Calender];
+    SetText = JSON.parse(localStorage.getItem("titles"))
+    x = DatesForCalender[Calender]
+    y = MonthsTest[Calender]
+    z = YearTest[Calender]
+    SaveDay = JSON.parse(localStorage.getItem("DaySaved"))
+    SaveMonth = JSON.parse(localStorage.getItem("MonthSaved"))
+    SaveYear = JSON.parse(localStorage.getItem("YearSaved"))
+
+
+
+
+
+    for (k = 0; k < SaveYear.length; k++) {
+
+        if (x == SaveDay[k] && y == SaveMonth[k] && z == SaveYear[k]) {
+
+
+            if (run != 0) { document.getElementById("BigDueBox").innerHTML = document.getElementById("BigDueBox").innerHTML + "</br>" + SetText[k]; }
+            else { document.getElementById("BigDueBox").innerHTML = SetText[k]; run++; }
+        }
+
+    }
+    if (DateInMonthCheck[Calender] == 1) {
+        document.getElementById("BigCell").style.backgroundColor = localStorage.getItem('color2');
+    } else if (DateInMonthCheck[Calender] == 2) {
+        document.getElementById("BigCell").style.backgroundColor = localStorage.getItem('color3');
+    } else {
+        document.getElementById("BigCell").style.backgroundColor = "#8C8984";
+    }
+
+
+
+
 }
+function ZoomOut() {//Zoom out Of single day view
+    document.getElementById("Block").style.display = 'none';
+    document.getElementById("BigCell").style.display = 'none';
+
+}
+
 //#endregion
 
 
