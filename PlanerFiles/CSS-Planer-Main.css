@@ -20,13 +20,13 @@ html, body {
 .Cal-header {
     width: 900px;
     height: 100px;
-    
-   position:relative;
+    position: relative;
     border: 1px solid black;
-   margin-bottom:0px;
-    background : var(--backgroundHead);
+    margin-bottom: 0px;
+    background: var(--backgroundHead);
     color: white;
     z-index: 1;
+    font-family: Arial;
 }
 
 .headerText {
@@ -274,7 +274,7 @@ li:hover {
 
 
 .textArea {
-    color: papayawhip;
+    color: black;
     
     margin-top:0px;
     
@@ -348,7 +348,7 @@ li:hover {
     
 }
 
-.BigBoxX {
+.ExitBigBox {
     opacity: 0.4;
     position: absolute;
     left: 0px;
@@ -357,9 +357,9 @@ li:hover {
     background:none;
     border:none;
 }
-.BigBoxX:hover{
-    opacity: 1;
-}
+    .ExitBigBox:hover {
+        opacity: 1;
+    }
 
 .SubmitFormButton{
     position:absolute;
@@ -408,7 +408,7 @@ li:hover {
 
 
 .AddDateControl {
-    width: 150px;
+    width: 200px;
     
 }
 
@@ -424,3 +424,8 @@ li:hover {
 .AddDateDropDown {
     background:aqua;
 }
+
+
+
+
+
