@@ -401,9 +401,9 @@
 
 
 
-                <label>
+                <label class="labelForForm">
                     Title
-                    <input type="text" id="Title" placeholder="Math homework..." required />
+                    <input type="text" id="Title" placeholder="Math homework..."/>
 
                 </label>
 
@@ -411,7 +411,7 @@
 
                     <label class="labelForForm">
                         Tag:
-                        <select id="TagBox" required>
+                        <select id="TagBox">
 
                             <option>Math</option>
                             <option>English</option>
@@ -442,8 +442,9 @@
 
 
                 <div id="DatePickerHolder" class="AddDateControl">
-
-                    Date: <input type="text" id="datepicker">
+                    <label class="labelForForm">Date: <input type="text" id="datepicker"></label>
+                   
+                    
 
                 </div>
 
@@ -515,11 +516,16 @@
             event.preventDefault();
 
         });
-
+       
         $("#datepicker").datepicker({
             changeMonth: true,
             changeYear: true,
-            inline: true
+            beforeShow: function () {
+               
+                   $(".ui-datepicker").css('font-size', 30)
+                
+            }
+        
 
         });
         $(function () {
@@ -528,7 +534,7 @@
                 "direction": "vertical"
             });
         });
-        $("#SubmitFormForDate").button;
+        
 
 
 
@@ -543,7 +549,7 @@
             modal:true,
             classes: {
                 "ui-dialog": "ui-corner-all custom-user-AddDate",
-               
+                "ui-dialog-buttonpane":"custom-user-AddDate",
             },
            open: function(event, ui){
                $('.ui-widget-overlay').css({ opacity: '0' });
@@ -668,13 +674,15 @@
 
     <style>
         .custom-user-AddDate {
-            background: red;
+            background: white;
+            border:none;
         }
         .custom-user-AddDateOverlay {
             background: #AAA url(images/ui-bg_flat_0_aaaaaa_40x100.png) 50% 50% repeat-x;
             opacity: .10;
             
         }
+       
     </style>
   
 </body>

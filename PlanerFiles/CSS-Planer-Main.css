@@ -230,7 +230,8 @@ th {
     display:block;
     padding-left : 12px;
     padding-bottom : 12px;
-    font-size: 17px;
+    font-size: 23px;
+    color:black;
 }
 
 
@@ -255,9 +256,12 @@ li:hover {
     background: none;
     
 }
+.Left:hover {
+    transform: scale(1.1,1.1);
+}
 
 .Right {
-    right: 14px;
+    right: 17px;
     bottom: -1px;
     align-content: center;
     text-align: center;
@@ -268,6 +272,9 @@ li:hover {
     font-size: 50px;
     background: none;
   
+}
+.Right:hover{
+   transform: scale(1.1,1.1);
 }
 
 

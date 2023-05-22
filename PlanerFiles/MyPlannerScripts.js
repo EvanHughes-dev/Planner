@@ -655,7 +655,9 @@ function CheckColorOfMonth() {
 }
 var IdForYearTDS = ["Year1", "Year2", "Year3", "Year4", "Year5", "Year6", "Year7", "Year8", "Year9", "Year10", "Year11", "Year12"];
 function ZoomToYear() {
-   
+    if (currentYear < 5) {
+        currentYear = 5;
+    }
     document.getElementById(MainCalenderId).style.display = "none";
     document.getElementById(MonthCalenderId).style.display = "none";
     document.getElementById(YearCalenderId).style.display = "revert";
@@ -779,5 +781,7 @@ function ZoomOut() {//Zoom out Of single day view
 }
 
 //#endregion
+
+
 
 
