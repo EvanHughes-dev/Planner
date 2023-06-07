@@ -390,7 +390,7 @@
 
     <button id="settings-link" onclick="Color()" class="SettingsButton">&#x2699;</button>
     <!--Begin User Date Input-->
-    <dialog id="UserDateForm" >
+    <dialog id="UserDateForm">
         <form id="_SubmitForm">
 
             <div id="Form1" title="Add Date">
@@ -399,7 +399,7 @@
 
                 <label class="labelForForm">
                     Title
-                    <input type="text" id="Title" placeholder="Math homework..."/>
+                    <input type="text" id="Title" placeholder="Math homework..." />
 
                 </label>
 
@@ -439,8 +439,8 @@
 
                 <div id="DatePickerHolder" class="AddDateControl">
                     <label class="labelForForm">Date: <input type="text" id="datepicker"></label>
-                   
-                    
+
+
 
                 </div>
 
@@ -512,16 +512,16 @@
             event.preventDefault();
 
         });
-       
+
         $("#datepicker").datepicker({
             changeMonth: true,
             changeYear: true,
             beforeShow: function () {
-               
-                   $(".ui-datepicker").css('font-size', 30)
-                
+
+                $(".ui-datepicker").css('font-size', 30)
+
             }
-        
+
 
         });
         $(function () {
@@ -530,12 +530,12 @@
                 "direction": "vertical"
             });
         });
-        
+
 
 
         $("#MainCalDisplay").dialog({
-        
-            
+
+
             autoOpen: false,
             width: 300,
             height: 300,
@@ -543,21 +543,21 @@
             maxHeight: 400,
             minWidth: 200,
             maxWidth: 400,
-            closeOnEscape:true,
-            classes:{
+            closeOnEscape: true,
+            classes: {
                 "ui-dialog": "custom-MainCal-Display",
-                "ui-dialog-title":"custom-MainCal-Title-Display",
-                "ui-dialog-header":"custom-MainCal-Title-Display",
+                "ui-dialog-title": "custom-MainCal-Title-Display",
+                "ui-dialog-header": "custom-MainCal-Title-Display",
             },
             open: function (event, ui) {
                 $('.ui-widget-overlay').css({ opacity: '0' });
                 $('#MainCalDisplay').css('overflow', 'hidden');//hides the scroll bar
-             
-              
+
+
             },
             close: function (event, ui) {
                 $('.ui-widget-overlay').css({ opacity: '.5' });
-                
+
             }
         });
 
@@ -569,13 +569,13 @@
             minWidth: 400,
             maxHeight: 800,
             maxWidth: 800,
-            modal:true,
+            modal: true,
             classes: {
                 "ui-dialog": "ui-corner-all custom-user-AddDate",
-                "ui-dialog-buttonpane":"custom-user-AddDate",
+                "ui-dialog-buttonpane": "custom-user-AddDate",
             },
-           open: function(event, ui){
-               $('.ui-widget-overlay').css({ opacity: '0' });
+            open: function (event, ui) {
+                $('.ui-widget-overlay').css({ opacity: '0' });
             },
             close: function (event, ui) {
                 $('.ui-widget-overlay').css({ opacity: '.5' });
@@ -598,9 +598,9 @@
                     }
                 }
             ]
-           
+
         });
-        
+
         $("#ButtonDate").click(function (event) {
             $("#Form1").dialog("open");
             event.preventDefault();
@@ -698,26 +698,47 @@
     <style>
         .custom-user-AddDate {
             background: white;
-            border:none;
+            border: none;
         }
+
         .custom-user-AddDateOverlay {
             background: #AAA url(images/ui-bg_flat_0_aaaaaa_40x100.png) 50% 50% repeat-x;
             opacity: .10;
-            
         }
-        .custom-MainCal-Display{
-            
-            
 
-          
+        .custom-MainCal-Display {
         }
+
         .custom-MainCal-Title-Display {
-            border:none;
-            
+            border: none;
         }
-       
     </style>
-  
+
+
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyDscin-jJ5xndWUoPxC_OopuyodNWiWtIQ",
+            authDomain: "webplaner-c63c4.firebaseapp.com",
+            projectId: "webplaner-c63c4",
+            storageBucket: "webplaner-c63c4.appspot.com",
+            messagingSenderId: "417154931196",
+            appId: "1:417154931196:web:3f3b77f4510579b02e7a79",
+            measurementId: "G-NWMYC1WJ21"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+    </script>
 </body>
 
 
