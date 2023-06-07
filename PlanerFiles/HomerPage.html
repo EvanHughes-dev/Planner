@@ -58,13 +58,19 @@
 
 
 
-    <div class="BigBox" id="Block">
+    <!--<div class="BigBox" id="Block">
         <div class="BigCell" id="BigCell">
             <button class="ExitBigBox" onclick="ZoomOut()"> &#9958; </button>
             <p class="textArea2" id="BigDateBox"></p>
-            <p class="DueBox2" id="BigDueBox"></p>
+            <p class="DueBox2" id="MainCalDisplaytext"></p>
 
         </div>
+    </div>-->
+
+    <div id="MainCalDisplay">
+
+        <p class="MainCalDisplayDate" id="BigDateBox"></p>
+        <p class="DueBox2" id="MainCalDisplayText"></p>
     </div>
 
     <!--#region Calender-->
@@ -537,6 +543,31 @@
         
 
 
+        $("#MainCalDisplay").dialog({
+            title: $(this).attr("data-dialog-title"),
+            
+            autoOpen: false,
+            width: 300,
+            height: 300,
+            minHeight: 200,
+            maxHeight: 400,
+            minWidth: 200,
+            maxWidth: 400,
+            classes:{
+                "ui-dialog": "custom-MainCal-Display",
+                
+            },
+            open: function (event, ui) {
+                $('.ui-widget-overlay').css({ opacity: '0' });
+                $('#MainCalDisplay').css('overflow', 'hidden');//hides the scroll bar
+                //add a funtion to display the date as the title
+              
+            },
+            close: function (event, ui) {
+                $('.ui-widget-overlay').css({ opacity: '.5' });
+                
+            }
+        });
 
 
         $("#Form1").dialog({
@@ -681,6 +712,11 @@
             background: #AAA url(images/ui-bg_flat_0_aaaaaa_40x100.png) 50% 50% repeat-x;
             opacity: .10;
             
+        }
+        .custom-MainCal-Display{
+        overflow:hidden;
+          background-color:black;  
+          
         }
        
     </style>

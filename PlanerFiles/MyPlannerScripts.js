@@ -11,11 +11,11 @@ const MainCalenderId = "MainCalender";
 const YearCalenderId = "YearCalenderId";
 const MonthCalenderId = "MonthCalender";
 
-var checkBox1 = "1";
+
 var DistanceFromCurrentMonth = 0;
 var currentYear;
-var r = document.querySelector(':root');
-var NumberOfEvents = 0;
+var rootStyle = document.querySelector(':root');
+
 
 const defaultColor = "#8DBCBB";//Color for Title
 const defaultColor2 = "#74C2E1";//Color for non current table element
@@ -30,7 +30,7 @@ YearTest = [];
 
 var IdForCalenderBackground = ['Day1Back', 'Day2Back', 'Day3Back', 'Day4Back', 'Day5Back', 'Day6Back', 'Day7Back', 'Day8Back', 'Day9Back', 'Day10Back', 'Day11Back', 'Day12Back', 'Day13Back', 'Day14Back', 'Day15Back', 'Day16Back', 'Day17Back', 'Day18Back', 'Day19Back', 'Day20Back', 'Day21Back', 'Day22Back', 'Day23Back', 'Day24Back', 'Day25Back', 'Day26Back', 'Day27Back', 'Day28Back', 'Day29Back', 'Day30Back', 'Day31Back', 'Day32Back', 'Day33Back', 'Day34Back', 'Day35Back', 'Day36Back', 'Day37Back', 'Day38Back', 'Day39Back', 'Day40Back', 'Day41Back', 'Day42Back', 'Day43Back', 'Day44Back']
 var IdForCalender = ['Day1', 'Day2', 'Day3', 'Day4', 'Day5', 'Day6', 'Day7', 'Day8', 'Day9', 'Day10', 'Day11', 'Day12', 'Day13', 'Day14', 'Day15', 'Day16', 'Day17', 'Day18', 'Day19', 'Day20', 'Day21', 'Day22', 'Day23', 'Day24', 'Day25', 'Day26', 'Day27', 'Day28', 'Day29', 'Day30', 'Day31', 'Day32', 'Day33', 'Day34', 'Day35', 'Day36', 'Day37', 'Day38', 'Day39', 'Day40', 'Day41', 'Day42']
-var ClassObjects = [];
+
 var DatesForCalender = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];//an array for all the cells
 var AllMonths = ["January", "Febuary", "March", "April", "May", "June", "July", "Agust", "September", "October", "November", "December"];
 var DueArray = ['Due1', 'Due2', 'Due3', 'Due4', 'Due5', 'Due6', 'Due7', 'Due8', 'Due9', 'Due10', 'Due11', 'Due12', 'Due13', 'Due14', 'Due15', 'Due16', 'Due17', 'Due18', 'Due19', 'Due20', 'Due21', 'Due22', 'Due23', 'Due24', 'Due25', 'Due26', 'Due27', 'Due28', 'Due29', 'Due30', 'Due31', 'Due32', 'Due33', 'Due34', 'Due35', 'Due36', 'Due37', 'Due38', 'Due39', 'Due40', 'Due41', 'Due42']
@@ -42,25 +42,25 @@ function Begin() {
     
     //Sets Colors for the Calender
     if (localStorage.getItem('color') !== null) {
-        r.style.setProperty('--backgroundHead', localStorage.getItem('color'));
+        rootStyle.style.setProperty('--backgroundHead', localStorage.getItem('color'));
     }
     else {
-        r.style.setProperty('--backgroundHead', defaultColor);
+        rootStyle.style.setProperty('--backgroundHead', defaultColor);
         localStorage.setItem('color', defaultColor);
     }
     if (localStorage.getItem('color4') !== null) {
-        r.style.setProperty('--backgroundHeader', localStorage.getItem('color4'));
+        rootStyle.style.setProperty('--backgroundHeader', localStorage.getItem('color4'));
     }
     else {
-        r.style.setProperty('--backgroundHeader', defaultColor4);
+        rootStyle.style.setProperty('--backgroundHeader', defaultColor4);
         localStorage.setItem('color4', defaultColor4);
     }
    
     if (localStorage.getItem('color2') != null) {
 
-        r.style.setProperty('--backgroundBox', localStorage.getItem('color2'));
+        rootStyle.style.setProperty('--backgroundBox', localStorage.getItem('color2'));
     } else {
-        r.style.setProperty('--backgroundBox', defaultColor2);
+        rootStyle.style.setProperty('--backgroundBox', defaultColor2);
         localStorage.setItem('color2', defaultColor2);
       
     }
@@ -400,7 +400,7 @@ function closeNav() {//closes the sidebar
 
 
 //#region Colors
-var r = document.querySelector(':root');
+
 
 
 function SaveColor() {
@@ -411,12 +411,12 @@ function SaveColor() {
     colorWell3 = document.querySelector("#colorWell3")
     colorWell4 = document.querySelector("#colorWell4")
 
-    r.style.setProperty('--backgroundHead', colorWell.value);
+    rootStyle.style.setProperty('--backgroundHead', colorWell.value);
     localStorage.setItem('color', colorWell.value);
 
     localStorage.setItem('color2', colorWell2.value);
     localStorage.setItem('color3', colorWell3.value);
-    r.style.setProperty('--backgroundHeader', colorWell4.value);
+    rootStyle.style.setProperty('--backgroundHeader', colorWell4.value);
     localStorage.setItem('color4', colorWell4.value);
 }
 
@@ -463,10 +463,10 @@ function Color() {
     else {
         colorWell4.value = Color4;
     }
-        r.style.setProperty('--backgroundHead', colorWell.value);
+        rootStyle.style.setProperty('--backgroundHead', colorWell.value);
         localStorage.setItem('color', colorWell.value)
    
-        r.style.setProperty('--backgroundHeader', colorWell4.value);
+        rootStyle.style.setProperty('--backgroundHeader', colorWell4.value);
           localStorage.setItem('color4', colorWell4.value)
 
         localStorage.setItem('color2', colorWell2.value)
@@ -737,10 +737,14 @@ var DueDatesCheckedYear = [0];
 function ZoomIn(Calender) {//zoom in on a single calender day
 
     var run = 0
-    document.getElementById("Block").style.display = 'block';
-    document.getElementById("BigCell").style.display = 'block';
+    //document.getElementById("Block").style.display = 'block';
+    //document.getElementById("BigCell").style.display = 'block';
+    $("#MainCalDisplay").dialog("open");
+    
+    
     document.getElementById("BigDateBox").innerHTML = DatesForCalender[Calender];
     SetText = JSON.parse(localStorage.getItem("titles"))
+    document.getElementById("MainCalDisplayText").innerHTML = "";//clears the text field
     x = DatesForCalender[Calender]
     y = MonthsTest[Calender]
     z = YearTest[Calender]
@@ -757,8 +761,8 @@ function ZoomIn(Calender) {//zoom in on a single calender day
         if (x == SaveDay[k] && y == SaveMonth[k] && z == SaveYear[k]) {
 
 
-            if (run != 0) { document.getElementById("BigDueBox").innerHTML = document.getElementById("BigDueBox").innerHTML + "</br>" + SetText[k]; }
-            else { document.getElementById("BigDueBox").innerHTML = SetText[k]; run++; }
+            if (run != 0) { document.getElementById("MainCalDisplayText").innerHTML = document.getElementById("MainCalDisplayText").innerHTML + "</br>" + SetText[k]; }
+            else { document.getElementById("MainCalDisplayText").innerHTML = SetText[k]; run++; }
         }
 
     }
