@@ -740,7 +740,6 @@ function ZoomIn(Calender) {//zoom in on a single calender day
     if (!$("#MainCalDisplay").dialog("isOpen")) {
         $("#MainCalDisplay").dialog("open");
     }
-   
 
     document.getElementById("BigDateBox").innerHTML = DatesForCalender[Calender];
     SetText = JSON.parse(localStorage.getItem("titles"))
@@ -756,8 +755,6 @@ function ZoomIn(Calender) {//zoom in on a single calender day
 
 
 
-
-
     for (k = 0; k < SaveYear.length; k++) {
 
         if (DayForDateBox == SaveDay[k] && MonthForDateBox == SaveMonth[k] && YearForDateBox == SaveYear[k]) {
@@ -768,16 +765,6 @@ function ZoomIn(Calender) {//zoom in on a single calender day
         }
 
     }
-    if (DateInMonthCheck[Calender] == 1) {
-        document.getElementById("BigCell").style.backgroundColor = localStorage.getItem('color2');
-    } else if (DateInMonthCheck[Calender] == 2) {
-        document.getElementById("BigCell").style.backgroundColor = localStorage.getItem('color3');
-    } else {
-        document.getElementById("BigCell").style.backgroundColor = "#8C8984";
-    }
-
-
-
 
 }
 function ZoomOut() {//Zoom out Of single day view

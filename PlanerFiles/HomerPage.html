@@ -390,7 +390,7 @@
 
     <button id="settings-link" onclick="Color()" class="SettingsButton">&#x2699;</button>
     <!--Begin User Date Input-->
-    <dialog id="UserDateForm" class="UserInputForm">
+    <dialog id="UserDateForm" >
         <form id="_SubmitForm">
 
             <div id="Form1" title="Add Date">
@@ -534,7 +534,7 @@
 
 
         $("#MainCalDisplay").dialog({
-            title: $(this).attr("data-dialog-title"),
+        
             
             autoOpen: false,
             width: 300,
@@ -546,7 +546,8 @@
             closeOnEscape:true,
             classes:{
                 "ui-dialog": "custom-MainCal-Display",
-                
+                "ui-dialog-title":"custom-MainCal-Title-Display",
+                "ui-dialog-header":"custom-MainCal-Title-Display",
             },
             open: function (event, ui) {
                 $('.ui-widget-overlay').css({ opacity: '0' });
@@ -706,7 +707,13 @@
         }
         .custom-MainCal-Display{
             
+            
+
           
+        }
+        .custom-MainCal-Title-Display {
+            border:none;
+            
         }
        
     </style>
