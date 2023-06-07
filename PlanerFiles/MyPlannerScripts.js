@@ -737,17 +737,19 @@ var DueDatesCheckedYear = [0];
 function ZoomIn(Calender) {//zoom in on a single calender day
 
     var run = 0
-    //document.getElementById("Block").style.display = 'block';
-    //document.getElementById("BigCell").style.display = 'block';
-    $("#MainCalDisplay").dialog("open");
-    
-    
+    if (!$("#MainCalDisplay").dialog("isOpen")) {
+        $("#MainCalDisplay").dialog("open");
+    }
+   
+
     document.getElementById("BigDateBox").innerHTML = DatesForCalender[Calender];
     SetText = JSON.parse(localStorage.getItem("titles"))
     document.getElementById("MainCalDisplayText").innerHTML = "";//clears the text field
-    x = DatesForCalender[Calender]
-    y = MonthsTest[Calender]
-    z = YearTest[Calender]
+    var DayForDateBox = DatesForCalender[Calender]
+    var MonthForDateBox = MonthsTest[Calender]
+    var YearForDateBox = YearTest[Calender]
+    $("#MainCalDisplay").dialog("option", "title", (MonthForDateBox + 1) + "/" + DayForDateBox + "/" + YearForDateBox);
+    //sets the title if the dialog box
     SaveDay = JSON.parse(localStorage.getItem("DaySaved"))
     SaveMonth = JSON.parse(localStorage.getItem("MonthSaved"))
     SaveYear = JSON.parse(localStorage.getItem("YearSaved"))
@@ -758,7 +760,7 @@ function ZoomIn(Calender) {//zoom in on a single calender day
 
     for (k = 0; k < SaveYear.length; k++) {
 
-        if (x == SaveDay[k] && y == SaveMonth[k] && z == SaveYear[k]) {
+        if (DayForDateBox == SaveDay[k] && MonthForDateBox == SaveMonth[k] && YearForDateBox == SaveYear[k]) {
 
 
             if (run != 0) { document.getElementById("MainCalDisplayText").innerHTML = document.getElementById("MainCalDisplayText").innerHTML + "</br>" + SetText[k]; }

@@ -57,16 +57,6 @@
     </div>
 
 
-
-    <!--<div class="BigBox" id="Block">
-        <div class="BigCell" id="BigCell">
-            <button class="ExitBigBox" onclick="ZoomOut()"> &#9958; </button>
-            <p class="textArea2" id="BigDateBox"></p>
-            <p class="DueBox2" id="MainCalDisplaytext"></p>
-
-        </div>
-    </div>-->
-
     <div id="MainCalDisplay">
 
         <p class="MainCalDisplayDate" id="BigDateBox"></p>
@@ -553,6 +543,7 @@
             maxHeight: 400,
             minWidth: 200,
             maxWidth: 400,
+            closeOnEscape:true,
             classes:{
                 "ui-dialog": "custom-MainCal-Display",
                 
@@ -560,7 +551,7 @@
             open: function (event, ui) {
                 $('.ui-widget-overlay').css({ opacity: '0' });
                 $('#MainCalDisplay').css('overflow', 'hidden');//hides the scroll bar
-                //add a funtion to display the date as the title
+             
               
             },
             close: function (event, ui) {
@@ -714,8 +705,7 @@
             
         }
         .custom-MainCal-Display{
-        overflow:hidden;
-          background-color:black;  
+            
           
         }
        
