@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="CSS-Planer-Main.css">
     <script src="MyPlannerScripts.js"></script>
     <script src="LoginHandle.js"></script>
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    
 
     
     <script src="API\chosen-1.8.7\jquery-ui-1.13.2.custom\external\jquery\jquery.js"></script>
@@ -21,14 +21,16 @@
 
 
 <body onload="Begin()">
-  
-    <<div id="g_id_onload"
-     data-client_id="630224516517-lmmsogkfu59es6dpgsmogidq03bdf4jq.apps.googleusercontent.com"
-     data-context="signin"
-     data-login_uri="https://memelord2000880.github.io"
-     data-auto_select="true"
-     data-itp_support="true">
-</div>
+
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <div id="g_id_onload"
+         data-client_id="630224516517-lmmsogkfu59es6dpgsmogidq03bdf4jq.apps.googleusercontent.com"
+
+
+         data-callback="handleCredentialResponse">
+    </div>
+    <div class="g_id_signin" data-type="standard"></div>
+
     <div id="mySidebar" class="sidebar">
         <select id="DropDownChange" class="AddDateDropDown">
             <option>All</option>
@@ -706,7 +708,7 @@
         function onSignIn(googleUser) {
             document.writeln("The");
             console.log("hell");
-           //document.write(profile.getName());
+            //document.write(profile.getName());
         }
 
     </script>
@@ -723,7 +725,6 @@
         }
 
         .custom-MainCal-Display {
-           
         }
 
         .custom-MainCal-Title-Display {
@@ -733,7 +734,7 @@
 
 
 
-   <div id="testDiv"> nope</div>
+    <div id="testDiv"> nope</div>
 </body>
 
 
