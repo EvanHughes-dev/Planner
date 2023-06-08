@@ -1,12 +1,10 @@
-var http = require('http');
-http.onSignIn(function(authInfos){
+
+function onSignIn(authInfos){
     const responsePayload = decodeJwtResponse(authInfos);
     // document.write("ID: " +responsePayload.sub);
 
-    
-}
-);
 
+}
 
 
 //https://developers.google.com/identity/gsi/web/guides/handle-credential-responses-js-functions
