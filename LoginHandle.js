@@ -1,4 +1,4 @@
 function onSignIn(googleUser) {
 
-    document.write(profile.getName());
+   Document.writeln("The");
 }
