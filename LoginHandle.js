@@ -1,4 +1,4 @@
 function onSignIn(googleUser) {
 
-   Document.writeln("The");
+   document.writeln("the");
 }
