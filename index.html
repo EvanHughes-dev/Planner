@@ -18,8 +18,9 @@
 
 
 <body onload="Begin()">
-    <div class="g-signin2" data-onsuccess="onSignIn"></div>
-    <div id="mySidebar" class="sidebar">
+    <button onclick="onSignIn"></button>
+    
+    <div id="mySidebar" class="sidebar">Sig
         <select id="DropDownChange" class="AddDateDropDown">
             <option>All</option>
             <option>Math</option>
@@ -46,8 +47,9 @@
         </select>
 
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&#10097;</a>
-        <ul class="CheckBoxStyle" id="MyList">
-        </ul>
+
+        <ul class="CheckBoxStyle" id="MyList"></ul>
+
         <button type="button" id="ResetSaved" class="DeletAllButton">Delet All</button>
     </div>
 
