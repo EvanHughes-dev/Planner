@@ -14,4 +14,3 @@ var decoded = jwtDecode(token);
 
 console.log(decoded);
 }
-
