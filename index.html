@@ -27,7 +27,7 @@
          data-client_id="630224516517-lmmsogkfu59es6dpgsmogidq03bdf4jq.apps.googleusercontent.com"
 
 
-         data-callback="onSignIn">
+         data-callback="SetSignIn">
     </div>
     <div class="g_id_signin" data-type="standard" ></div>
 
@@ -705,7 +705,9 @@
 
         //#endregion
         
-       
+       function SetSignIn(token){
+        onSighin(token);
+       }
 
     </script>
 
