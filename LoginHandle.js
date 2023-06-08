@@ -1,3 +1,4 @@
+const { default: jwtDecode } = require("jwt-decode");
 
 function onSignIn(authInfos) {
     const responsePayload = decodeJwtResponse(authInfos);
@@ -7,7 +8,7 @@ function onSignIn(authInfos) {
 //https://developers.google.com/identity/gsi/web/guides/handle-credential-responses-js-functions
 
 function decodeJwtResponse(token){
-var decoded = jwt_decode(token);
+var decoded = jwtDecode(token);
 
 console.log(decoded);
 }
