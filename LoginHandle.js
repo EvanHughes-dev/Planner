@@ -39,4 +39,5 @@ function jwtDecode(token, options) {
     } catch (e) {
         throw new InvalidTokenError("Invalid token specified: invalid json for part #" + (pos + 1) + ' (' + e.message + ')');
     }
+    
 }
