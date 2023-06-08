@@ -1,5 +1,6 @@
 const { default: jwtDecode } = require("jwt-decode");
 
+
 function onSignIn(authInfos) {
     const responsePayload = decodeJwtResponse(authInfos);
    // document.write("ID: " +responsePayload.sub);
