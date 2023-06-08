@@ -1,5 +1,6 @@
 
 function onSignIn(authInfos){
+    console.log(authInfos);
     const responsePayload = decodeJwtResponse(authInfos);
     // document.write("ID: " +responsePayload.sub);
 
