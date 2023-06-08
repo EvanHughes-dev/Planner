@@ -706,11 +706,11 @@
         //#endregion
 
         function onSignIn(authInfos) {
-           
-            document.write(authInfos.id);
+            const responsePayload = decodeJwtResponse(authInfos);
+            document.write("ID: " +responsePayload.sub);
         }
         
-
+//https://developers.google.com/identity/gsi/web/guides/handle-credential-responses-js-functions
 
     </script>
 
