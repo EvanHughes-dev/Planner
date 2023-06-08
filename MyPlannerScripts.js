@@ -39,7 +39,7 @@ var DateInMonthCheck = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 //#endregion
 
 function Begin() {
-    
+    console.log("hell");
     //Sets Colors for the Calender
     if (localStorage.getItem('color') !== null) {
         rootStyle.style.setProperty('--backgroundHead', localStorage.getItem('color'));
