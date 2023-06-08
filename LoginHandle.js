@@ -1,9 +1,6 @@
 
 function onSignIn(authInfos){
     document.writeln(authInfos);
-    const responsePayload = decodeJwtResponse(authInfos);
-   
-
 
 }
 
