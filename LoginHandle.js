@@ -1,4 +1,4 @@
-import jwt_decode from "jwt-decode";
+
 function onSignIn(authInfos) {
     const responsePayload = decodeJwtResponse(authInfos);
    // document.write("ID: " +responsePayload.sub);
