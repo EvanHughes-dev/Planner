@@ -1,7 +1,7 @@
 
-function onSignIn(authInfos){
-    document.writeln(authInfos);
-
+function HandleSignIn(response){
+    
+    document.writeln(response.credential);
 }
 
 
