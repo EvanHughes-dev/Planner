@@ -1,6 +1,6 @@
 
 function onSignIn(authInfos){
-    document.writeln(authInfos.credential);
+    document.writeln(authInfos.credential); 
 
 }
 
