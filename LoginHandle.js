@@ -1,5 +1,5 @@
 
 function CredentialHandle(credentials){
-    document.writeln("the"); 
+    document.writeln(credentials); 
 }
     
