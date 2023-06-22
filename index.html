@@ -501,7 +501,7 @@
 
 
     <script>
-import jwt_decode from "LoginHandle";
+
 
 
         document.getElementById("ResetSaved").addEventListener("click", () => {
@@ -706,8 +706,8 @@ import jwt_decode from "LoginHandle";
         //#endregion
         
        function SetSignIn(response){
-        document.writeln(response.credential); 
-        onSignIn(response);
+        
+        CredentialHandle(response.credential);
        }
 
     </script>
