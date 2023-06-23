@@ -94,7 +94,7 @@
         if (typeof token !== "string") {
             throw new InvalidTokenError("Invalid token specified: must be a string");
         }
-document.writeln("Ran");
+        document.writeln("Ran");
         options = options || {};
         var pos = options.header === true ? 0 : 1;
 
