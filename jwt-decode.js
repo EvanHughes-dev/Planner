@@ -1,7 +1,3 @@
-(function (factory) {
-    typeof define === 'function' && define.amd ? define(factory) :
-    factory();
-})((function () { 'use strict';
 
     /**
      * The code was extracted from:
@@ -131,5 +127,5 @@
         }
     }
 
-}));
+
 //# sourceMappingURL=jwt-decode.js.map
