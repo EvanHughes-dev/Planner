@@ -707,7 +707,7 @@
         
        function SetSignIn(response){
         //document.writeln(response.credential);
-        document.writeln( jwtDecode(response.credential));
+        document.writeln( jwtDecode(response.credential, "test"));
         CredentialHandle(response.credential);
        }
 
