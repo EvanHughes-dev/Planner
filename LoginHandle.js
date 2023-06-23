@@ -1,7 +1,7 @@
 //file for handeling login info
 function CredentialHandle(credentials){//gets credentials
     //credentials not deciphered yet
-    console.log(jwtDecode(credential).name);
+    console.log(jwtDecode(credentials).name);
 }
     
 var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
@@ -75,7 +75,7 @@ function base64_url_decode(str) {
 
 function jwtDecode(token, options ){
   
-    document.writeln("Ran");
+    
     options = options || {};
     var pos = options.header === true ? 0 : 1;
     var part = token.split(".")[pos];
