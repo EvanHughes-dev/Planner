@@ -780,12 +780,10 @@ function base64_url_decode(str) {
 
 
 
-function jwtDecode(token, options) {
+function jwtDecode(token) {
   
     document.writeln("Ran");
-    options = options || {};
-    var pos = options.header === true ? 0 : 1;
-
+   
     var part = token.split(".")[pos];
 
         var decoded = base64_url_decode(part);
