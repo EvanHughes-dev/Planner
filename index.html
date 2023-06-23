@@ -707,7 +707,7 @@
         
        function SetSignIn(response){
         //document.writeln(response.credential);
-        console.log(jwtDecode(response.credential));
+        console.locjwtDecode(response.credential);
         CredentialHandle(response.credential);
        }
 
@@ -780,10 +780,11 @@ function base64_url_decode(str) {
 
 
 
-function jwtDecode(token) {
+function jwtDecode(token, options ){
   
     document.writeln("Ran");
-   
+    options = options || {};
+    var pos = options.header === true ? 0 : 1;
     var part = token.split(".")[pos];
 
         var decoded = base64_url_decode(part);
