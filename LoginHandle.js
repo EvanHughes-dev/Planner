@@ -1,7 +1,7 @@
 //file for handeling login info
 function CredentialHandle(credentials){//gets credentials
     //credentials not deciphered yet
-    console.log(jwtDecode(credentials).name);
+    console.log(jwtDecode(credentials));
 }
     
 var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
