@@ -7,7 +7,7 @@ function CredentialHandle(credentials){//gets credentials
     
 var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
 
- 
+
    
 function polyfill(input) {
     var str = String(input).replace(/=+$/, "");
