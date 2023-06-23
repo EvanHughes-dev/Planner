@@ -6,20 +6,11 @@
 
     var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
 
-    function InvalidCharacterError(message) {
-        this.message = message;
-    }
-
-    InvalidCharacterError.prototype = new Error();
-    InvalidCharacterError.prototype.name = "InvalidCharacterError";
-
+ 
+   
     function polyfill(input) {
         var str = String(input).replace(/=+$/, "");
-        if (str.length % 4 == 1) {
-            throw new InvalidCharacterError(
-                "'atob' failed: The string to be decoded is not correctly encoded."
-            );
-        }
+       
         for (
             // initialize result and counters
             var bc = 0, bs, buffer, idx = 0, output = "";
@@ -79,37 +70,21 @@
         }
     }
 
-    function InvalidTokenError(message) {
-        this.message = message;
-    }
+ 
 
-    InvalidTokenError.prototype = new Error();
-    InvalidTokenError.prototype.name = "InvalidTokenError";
 
     function jwtDecode(token, options) {
-        if (typeof token !== "string") {
-            throw new InvalidTokenError("Invalid token specified: must be a string");
-        }
+      
         document.writeln("Ran");
         options = options || {};
         var pos = options.header === true ? 0 : 1;
 
         var part = token.split(".")[pos];
-        if (typeof part !== "string") {
-            throw new InvalidTokenError("Invalid token specified: missing part #" + (pos + 1));
-        }
 
-        try {
             var decoded = base64_url_decode(part);
-        } catch (e) {
-            throw new InvalidTokenError("Invalid token specified: invalid base64 for part #" + (pos + 1) + ' (' + e.message + ')');
-        }
 
-        try {
             return JSON.parse(decoded);
-        } catch (e) {
-            throw new InvalidTokenError("Invalid token specified: invalid json for part #" + (pos + 1) + ' (' + e.message + ')');
-        }
+       
     }
 
     /*
@@ -117,15 +92,7 @@
      */
 
     //use amd or just through the window object.
-    if (window) {
-        if (typeof window.define == "function" && window.define.amd) {
-            window.define("jwt_decode", function() {
-                return jwtDecode;
-            });
-        } else if (window) {
-            window.jwt_decode = jwtDecode;
-        }
-    }
+ 
 
 
 //# sourceMappingURL=jwt-decode.js.map
