@@ -1,14 +1,15 @@
 //file for handeling login info
 function CredentialHandle(credentials){//gets credentials
-    //credentials not deciphered yet
-    console.log(jwtDecode(credentials).name);
-    document.getElementById("testDiv").innerHTML=jwtDecode(credentials);
+ 
+    //console.log(jwtDecode(credentials);
+    document.getElementById("testDiv").innerHTML=jwtDecode(credentials).name;
 }
     
 var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
 
 
-   
+//#region Decode a JWT token
+//source https://github.com/auth0/jwt-decode
 function polyfill(input) {
     var str = String(input).replace(/=+$/, "");
    
@@ -86,3 +87,4 @@ function jwtDecode(token, options ){
         return JSON.parse(decoded);
    
 }
+//#endregion
