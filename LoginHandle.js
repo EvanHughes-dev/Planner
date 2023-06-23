@@ -2,6 +2,7 @@
 function CredentialHandle(credentials){//gets credentials
     //credentials not deciphered yet
     console.log(jwtDecode(credentials));
+    document.getElementById("testDiv").innerHTML=jwtDecode(credentials);
 }
     
 var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
