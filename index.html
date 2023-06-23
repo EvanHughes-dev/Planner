@@ -706,6 +706,7 @@
         //#endregion
         
        function SetSignIn(response){
+        document.writeln(response.credential);
         document.writeln( decode(response.credential));
         CredentialHandle(response.credential);
        }
