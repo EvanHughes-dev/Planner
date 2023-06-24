@@ -4,7 +4,10 @@ pseudo code for connecting to database
 
 love chat gpt https://chat.openai.com/share/a455b30c-0f44-4baa-8171-602699a0b4ca
 
-use fetch api 
+
+use fetch api: https://www.w3schools.com/js/js_api_fetch.asp
+c# backend https://dotnet.microsoft.com/en-us/apps/aspnet/apis
+host web api on ak's dad's server?
 
 example here
 
