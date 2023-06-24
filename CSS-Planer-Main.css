@@ -129,6 +129,17 @@ th {
    background-color:blue;
     text-align: center;
 }
+
+.profileImage{
+    
+        border-radius: 50%;
+        position: absolute;
+        left: 5px;
+        top: 5px;
+      
+}
+
+
 /* The sidebar menu */
 .sidebar {
     height: 100%; /* 100% Full-height */
