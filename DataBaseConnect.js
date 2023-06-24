@@ -1,6 +1,6 @@
 /*
-pseudo code for connecting to data base
-Most likely will create this with node js
+pseudo code for connecting to database
+
 
 love chat gpt https://chat.openai.com/share/a455b30c-0f44-4baa-8171-602699a0b4ca
 
