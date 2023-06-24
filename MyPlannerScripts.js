@@ -44,7 +44,7 @@ var DateInMonthCheck = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 function Begin() {
     
     if(!Login){
-        window.open ("LoginPage/index/html",'_self',false)
+        window.open ("LoginPage/index.html",'_self',false)
     }
 
     //Sets Colors for the Calender
