@@ -7,6 +7,9 @@
 
 
 //#region Global Variables
+
+var Login = false;
+
 const MainCalenderId = "MainCalender";
 const YearCalenderId = "YearCalenderId";
 const MonthCalenderId = "MonthCalender";
@@ -40,6 +43,10 @@ var DateInMonthCheck = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 
 function Begin() {
     
+    if(!Login){
+        window.open ("LoginPage/index/html",'_self',false)
+    }
+
     //Sets Colors for the Calender
     if (localStorage.getItem('color') !== null) {
         rootStyle.style.setProperty('--backgroundHead', localStorage.getItem('color'));
