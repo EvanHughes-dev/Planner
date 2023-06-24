@@ -5,8 +5,8 @@ function CredentialHandle(credentials){//gets credentials
  
     //console.log(jwtDecode(credentials);
     const info = jwtDecode(credentials);
-  
-    window.sessionStorage.setItem("CurentUserID", info.sub);
+    console.log("Ran");
+    //window.sessionStorage.setItem("CurentUserID", info.sub);
     window.open ('../','_self',false)//return to main page
     //.sub is the unique code for the user
 }
