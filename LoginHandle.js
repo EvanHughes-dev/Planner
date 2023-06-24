@@ -7,7 +7,7 @@ function CredentialHandle(credentials){//gets credentials
     const info = jwtDecode(credentials);
   
     window.sessionStorage.setItem("CurentUserID", info.sub);
-    window.open ('Planer/','_self',false)
+    window.open ('Planner/','_self',false)
     //.sub is the unique code for the user
 }
     
