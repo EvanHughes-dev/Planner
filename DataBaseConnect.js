@@ -9,6 +9,10 @@ use fetch api: https://www.w3schools.com/js/js_api_fetch.asp
 c# backend https://dotnet.microsoft.com/en-us/apps/aspnet/apis
 host web api on ak's dad's server?
 
+for now, host web api on old laptop
+
+ip address from a dns server routed from the local ip
+
 example here
 
 Make a GET request to fetch user data from the backend
