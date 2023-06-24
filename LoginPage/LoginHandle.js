@@ -7,8 +7,16 @@ function CredentialHandle(credentials){//gets credentials
     const info = jwtDecode(credentials);
    
     window.sessionStorage.setItem("CurentUserID", info.sub);
-    window.open ('../','_self',false)//return to main page
+    
     //.sub is the unique code for the user
+    /*
+    do a call to the sever to see if the account is already in the system
+    if it is, go back to the main window
+    else
+    throw a form to collect data (current grade, classes, could also check if tehy are a student)
+    also have a form for a new user crearing an account without google
+    */
+    window.open ('../','_self',false)//return to main page
 }
     
 var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
