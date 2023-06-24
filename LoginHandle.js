@@ -3,6 +3,7 @@ function CredentialHandle(credentials){//gets credentials
  
     //console.log(jwtDecode(credentials);
     document.getElementById("testDiv").innerHTML=jwtDecode(credentials).name;
+    //.sub is the unique code for the user
 }
     
 var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
@@ -10,6 +11,7 @@ var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
 
 //#region Decode a JWT token
 //source https://github.com/auth0/jwt-decode
+//source for JWT help https://jwt.io/
 
 function b64DecodeUnicode(str) {
     return decodeURIComponent(
