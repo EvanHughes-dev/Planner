@@ -43,8 +43,14 @@ var DateInMonthCheck = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 
 function Begin() {
     
+    if(window.sessionStorage.getItem("CurentUserID")!=null){
+     Login = true;
+     document.getElementById("testDiv").innerHTML=window.sessionStorage.getItem("CurentUserID");
+    }
+
     if(!Login){
-        window.open ("LoginPage/index.html",'_self',false)
+        //sends user to the login page if they are not logged in
+        window.open ("LoginPage/",'_self',false)
     }
 
     //Sets Colors for the Calender

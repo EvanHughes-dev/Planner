@@ -1,8 +1,13 @@
 //file for handeling login info
+
+
 function CredentialHandle(credentials){//gets credentials
  
     //console.log(jwtDecode(credentials);
-    document.getElementById("testDiv").innerHTML=jwtDecode(credentials).name;
+    const info = jwtDecode(credentials);
+  
+    window.sessionStorage.setItem("CurentUserID", info.sub);
+    window.open ('Planer/','_self',false)
     //.sub is the unique code for the user
 }
     

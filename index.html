@@ -22,15 +22,7 @@
 
 <body onload="Begin()">
 
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
-    <div id="g_id_onload"
-         data-client_id="630224516517-lmmsogkfu59es6dpgsmogidq03bdf4jq.apps.googleusercontent.com"
-
-
-         data-callback="SetSignIn">
-    </div>
-    <div class="g_id_signin" data-type="standard"  ></div>
-
+   
     <div id="mySidebar" class="sidebar">
         <select id="DropDownChange" class="AddDateDropDown">
             <option>All</option>
@@ -705,11 +697,7 @@
 
         //#endregion
         
-       function SetSignIn(response){
-        //document.writeln(response.credential);
-        
-        CredentialHandle(response.credential);
-       }
+       
 
     
     </script>
