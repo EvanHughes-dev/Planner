@@ -15,6 +15,9 @@ background-color: grey;
     width: 50%;
     height: 30;
     padding-top:35%;
+    justify-content: center;
+    border:black;
+    
 }
 
 .googleButton{
