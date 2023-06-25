@@ -54,7 +54,7 @@ function Begin() {
         //sends user to the login page if they are not logged in
         window.open ("LoginPage/",'_self',false)
     }
-
+    
     //Sets Colors for the Calender
     if (localStorage.getItem('color') !== null) {
         rootStyle.style.setProperty('--backgroundHead', localStorage.getItem('color'));
