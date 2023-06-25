@@ -45,8 +45,8 @@ function Begin() {
     
     if(window.sessionStorage.getItem("CurentUserID")!=null){
      Login = true;
-     //console.log("Session id from google is " + window.sessionStorage.getItem("CurentUserID"));
-     document.getElementById("idImage").src = window.sessionStorage.getItem("CurrentProfilePhoto");
+     document.getElementById("testDiv").innerHTML=window.sessionStorage.getItem("CurentUserID");
+     document.getElementById("idImage").src = window.sessionStorage.getItem("CurrentP")
 
     }
 
