@@ -11,8 +11,14 @@ background-color: grey;
 
 }
 
+.loginBox{
+    width: 50%;
+    height:
+}
+
 .googleButton{
     
-    background-color: grey
+    position: absolute;
+
     
 }
