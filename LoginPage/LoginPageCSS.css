@@ -13,7 +13,8 @@ background-color: grey;
 
 .loginBox{
     width: 50%;
-    height:
+    height: 30;
+    padding-top:35%;
 }
 
 .googleButton{
