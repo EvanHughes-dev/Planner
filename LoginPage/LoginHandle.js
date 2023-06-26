@@ -80,8 +80,10 @@ function jwtDecode(token, options ){
 //#endregion
 
 function GetID(id){
+    
     fetch("http://69.242.41.167:8082/api/login/google/"+id)
       .then(Response => {
+        document.writeln(Response);
       if(Response==null){
         console.log("User Does Not Exist");
       }
