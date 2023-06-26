@@ -81,7 +81,7 @@ function jwtDecode(token, options ){
 
 function GetID(id){
     
-    fetch("http://69.242.41.167:8082/api/login")
+    fetch("https://69.242.41.167:8082/api/login")
       .then(Response => {
         document.writeln(Response);
       if(Response==null){
