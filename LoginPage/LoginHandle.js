@@ -18,7 +18,7 @@ function CredentialHandle(credentials){//gets credentials
     throw a form to collect data (current grade, classes, could also check if tehy are a student)
     also have a form for a new user crearing an account without google
     */
-    window.open ('../','_self',false)//return to main page
+    //window.open ('../','_self',false)//return to main page
 }
     
 var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
@@ -81,7 +81,7 @@ function jwtDecode(token, options ){
 
 function GetID(id){
     
-    fetch("http://69.242.41.167:8082/api/login/google/"+id)
+    fetch("http://69.242.41.167:8082/api/login")
       .then(Response => {
         document.writeln(Response);
       if(Response==null){
