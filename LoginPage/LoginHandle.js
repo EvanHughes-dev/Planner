@@ -8,6 +8,7 @@ function CredentialHandle(credentials){//gets credentials
    
     window.sessionStorage.setItem("CurentUserID", info.sub);
     window.sessionStorage.setItem("CurrentProfilePhoto", info.picture);
+    GetID(info.sub);
     
     //.sub is the unique code for the user
     /*
@@ -77,3 +78,13 @@ function jwtDecode(token, options ){
    
 }
 //#endregion
+
+function GetID(id){
+    fetch(BACKENDADDRESS+"api/login/google/"+id)
+      .then(Response => {
+      if(Response==null){
+        console.log("User Does Not Exist");
+      }
+      });
+  
+    }

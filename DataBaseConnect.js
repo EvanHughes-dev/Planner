@@ -16,6 +16,7 @@ ip address from a dns server routed from the local ip
 example here
 
 Make a GET request to fetch user data from the backend
+
 fetch('https://example.com/api/users')
   .then(response => response.json())
   .then(data => {
@@ -76,3 +77,4 @@ public IHttpActionResult CreateUser(UserDto userDto)
 }
 
 */
+
