@@ -8,7 +8,7 @@ function CredentialHandle(credentials){//gets credentials
    
     window.sessionStorage.setItem("CurentUserID", info.sub);
     window.sessionStorage.setItem("CurrentProfilePhoto", info.picture);
-    GetID(info.sub);
+    //GetID(info.sub);
     
     //.sub is the unique code for the user
     /*
@@ -18,7 +18,7 @@ function CredentialHandle(credentials){//gets credentials
     throw a form to collect data (current grade, classes, could also check if tehy are a student)
     also have a form for a new user crearing an account without google
     */
-    //window.open ('../','_self',false)//return to main page
+    window.open ('../','_self',false)//return to main page
 }
     
 var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
@@ -81,7 +81,7 @@ function jwtDecode(token, options ){
 
 function GetID(id){
     
-    fetch("https://69.242.41.167:8082/api/login")
+    fetch("http://69.242.41.167:8082/api/login")
       .then(Response => {
         document.writeln(Response);
       if(Response==null){
