@@ -40,9 +40,36 @@ var DueArray = ['Due1', 'Due2', 'Due3', 'Due4', 'Due5', 'Due6', 'Due7', 'Due8', 
 var DateInMonthCheck = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 //#endregion
 //#endregion
-
+const site_Base = 'https://schoology.dasd.org';
+const client_key = "db49cdf48e3fc60c7765e793f77ae628064e901c9";
+const client_secret = "0c9ce84ea95389981f5301a9bcf2b6b5";
 function Begin() {
-    
+    const headers = new Headers({
+        'Authorization': `Bearer ${client_key}:${client_secret}`,
+        'Content-Type': 'application/json', // Add any required headers
+    });
+
+    const requestOptions = {
+        method: 'GET', // Use the appropriate HTTP method (GET, POST, PUT, etc.)
+        headers: headers,
+    };
+
+    fetch(site_Base, requestOptions)
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Network response was not ok');
+            }
+        })
+        .then(data => {
+            // Handle the API response here
+            console.log(data);
+        })
+        .catch(error => {
+            // Handle any errors
+            console.error(error);
+        });
     if(window.sessionStorage.getItem("CurentUserID")!=null){
      Login = true;
      //console.log("Session id from google is " + window.sessionStorage.getItem("CurentUserID"));
